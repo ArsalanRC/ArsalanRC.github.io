@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title data-i18n="meta.title">Arsalan Khadim · Software architect</title>
+<meta name="description" content="Arsalan Khadim, software architect and full-stack engineer. Warehouse systems, ERP integrations and logistics APIs by day; engines, libraries and playable demos the rest of the time." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./style.css" />
+<script>
+  (function () {
+    var t = null, l = null;
+    try { t = localStorage.getItem("ak-theme"); l = localStorage.getItem("ak-lang"); } catch (e) {}
+    document.documentElement.dataset.theme =
+      t || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+    var de = (navigator.language || "en").toLowerCase().startsWith("de");
+    document.documentElement.lang = l || (de ? "de" : "en");
+  })();
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="#top">arsalan<span class="dim">.khadim</span></a>
+  <nav class="topnav">
+    <a href="https://github.com/ArsalanRC" target="_blank" rel="noopener">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg><span>GitHub</span>
+    </a>
+    <a href="https://www.linkedin.com/in/muhammad-arsalan-khadim-b87550259/" target="_blank" rel="noopener">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg><span>LinkedIn</span>
+    </a>
+    <button type="button" class="pill" id="lang-btn" data-i18n="nav.lang">Deutsch</button>
+    <button type="button" class="icon-btn" id="theme-btn" aria-label="Switch theme">
+      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.4M12 19.2v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.4 12h2.4M19.2 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a6.9 6.9 0 0 0 11.1 11.1z"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="stage">
+    <!-- The 3D scene is progressive enhancement. This grid is the real content
+         and renders instantly; the canvas fades in over it only once three.js
+         and the model have loaded, and never at all without WebGL. -->
+    <div class="fallback" id="fallback" aria-hidden="true">
+      <img src="./assets/cards/chess-board.jpg" alt="">
+      <img src="./assets/cards/patterns-retry.jpg" alt="">
+      <img src="./assets/cards/chess-result.jpg" alt="">
+      <img src="./assets/cards/patterns-atomic.jpg" alt="">
+      <img src="./assets/cards/chess-light.jpg" alt="">
+      <img src="./assets/cards/patterns-idem.jpg" alt="">
+    </div>
+    <canvas id="scene" aria-hidden="true"></canvas>
+
+    <div class="stage-copy">
+      <p class="kicker" data-i18n="hero.kicker">Software architect · Full-stack engineer</p>
+      <h1 class="title">Arsalan Khadim</h1>
+      <p class="lede" data-i18n="hero.lede"></p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://arsalanrc.github.io/chess-engine/" target="_blank" rel="noopener" data-i18n="hero.playChess">Play my chess engine</a>
+        <a class="btn" href="https://arsalanrc.github.io/integration-patterns/" target="_blank" rel="noopener" data-i18n="hero.seePatterns">See integration-patterns</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <p class="eyebrow" data-i18n="work.eyebrow">Work</p>
+    <h2 data-i18n="work.title">Things you can open right now</h2>
+    <p class="body" data-i18n="work.lede"></p>
+
+    <div class="grid">
+      <a class="card" href="https://arsalanrc.github.io/chess-engine/" target="_blank" rel="noopener">
+        <img src="./assets/cards/chess-board.jpg" alt="" loading="lazy">
+        <div class="card-body">
+          <h3>chess-engine</h3>
+          <p data-i18n="work.chess"></p>
+          <span class="meta">TypeScript · 47 tests · 0 dependencies</span>
+        </div>
+      </a>
+      <a class="card" href="https://arsalanrc.github.io/integration-patterns/" target="_blank" rel="noopener">
+        <img src="./assets/cards/patterns-retry.jpg" alt="" loading="lazy">
+        <div class="card-body">
+          <h3>integration-patterns</h3>
+          <p data-i18n="work.patterns"></p>
+          <span class="meta">TypeScript · Postgres · 28 tests</span>
+        </div>
+      </a>
+      <div class="card card-static">
+        <div class="card-body">
+          <h3>Game Arena</h3>
+          <p data-i18n="work.arena"></p>
+          <span class="meta">Next.js 14 · Supabase · 940 tests · 23 languages</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <p class="eyebrow" data-i18n="how.eyebrow">Approach</p>
+    <h2 data-i18n="how.title">How I think about building</h2>
+    <div class="principles">
+      <div><h3 data-i18n="how.p1t"></h3><p data-i18n="how.p1"></p></div>
+      <div><h3 data-i18n="how.p2t"></h3><p data-i18n="how.p2"></p></div>
+      <div><h3 data-i18n="how.p3t"></h3><p data-i18n="how.p3"></p></div>
+      <div><h3 data-i18n="how.p4t"></h3><p data-i18n="how.p4"></p></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+    <h2 data-i18n="contact.title">Get in touch</h2>
+    <p class="body" data-i18n="contact.body"></p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/muhammad-arsalan-khadim-b87550259/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>Arsalan Khadim</span><span class="sep">·</span>
+  <span data-i18n="foot.built">Built by hand, no template</span><span class="sep">·</span>
+  <a href="https://github.com/ArsalanRC/ArsalanRC.github.io" target="_blank" rel="noopener" data-i18n="foot.source">Source</a>
+</footer>
+
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js", "three/addons/": "./vendor/" } }
+</script>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
