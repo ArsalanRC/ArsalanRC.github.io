@@ -128,15 +128,20 @@ applyLang(root.lang === "de" ? "de" : "en");
  * and each card slot receives a screenshot of an actual project.
  */
 const CARD_TEXTURES = [
-  "chess-board", "patterns-retry", "chess-result",
-  "patterns-atomic", "chess-light", "patterns-idem",
+  "arena-lobby", "arena-ludo", "chess-board",
+  "arena-languages", "patterns-retry", "arena-rtl",
 ];
 /**
  * three.js sanitises glTF node names, so "project name" arrives as
  * "project_name". Compare on a normalised form rather than the raw string,
  * which is a silent no-op waiting to happen otherwise.
  */
-const HIDE = new Set(["project name", "promo", "text", "your logo text", "yourlogo png"]);
+const HIDE = new Set([
+  "project name", "promo", "text", "your logo text", "yourlogo png",
+  // The template's backdrop torus. It is a large gold ring that means nothing
+  // and reads as a stray graphic rather than part of the work, so it goes.
+  "bg shape",
+]);
 const norm = (s) => (s || "").toLowerCase().replace(/[_+]/g, " ").replace(/\s+/g, " ").trim();
 
 function webglAvailable() {
@@ -236,7 +241,9 @@ async function initScene() {
     const vFov = (camera.fov * Math.PI) / 180;
     const forHeight = size.y / 2 / Math.tan(vFov / 2);
     const forWidth = size.x / 2 / (Math.tan(vFov / 2) * camera.aspect);
-    const dist = Math.max(forHeight, forWidth) * 1.35;   // breathing room
+    // Tight. With the backdrop ring gone the cards are the whole composition,
+    // so they should fill the stage rather than float in the middle of it.
+    const dist = Math.max(forHeight, forWidth) * 1.02;
     camera.position.set(0, 0, dist);
     camera.lookAt(0, 0, 0);
     camera.near = dist / 100;
