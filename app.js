@@ -27,7 +27,9 @@ const STRINGS = {
     "work.eyebrow": "Work",
     "work.title": "Things you can open right now",
     "work.lede":
-      "No install, no sign-up. The first two run in your browser the moment you click them.",
+      "No install, no sign-up. The first three run in your browser the moment you click them.",
+    "work.recon":
+      "Two systems disagree about a stock count. Most of those disagreements are formatting rather than fact, so every tolerance is opt-in and named per field: a tool that quietly decides two values are equal is more dangerous than one that reports too much.",
     "work.chess":
       "A complete chess engine: full FIDE rules and a minimax bot with alpha-beta pruning. The demo puts the engine's evaluation, legal move count and position hash on screen beside the board.",
     "work.patterns":
@@ -66,7 +68,9 @@ const STRINGS = {
     "work.eyebrow": "Projekte",
     "work.title": "Direkt ausprobieren",
     "work.lede":
-      "Keine Installation, keine Anmeldung. Die ersten beiden laufen sofort im Browser.",
+      "Keine Installation, keine Anmeldung. Die ersten drei laufen sofort im Browser.",
+    "work.recon":
+      "Zwei Systeme sind sich über einen Bestand uneinig. Die meisten dieser Widersprüche sind Formatierung und nicht Inhalt, deshalb wird jede Toleranz bewusst und pro Feld gesetzt: ein Werkzeug, das stillschweigend entscheidet, zwei Werte seien gleich, ist gefährlicher als eins, das zu viel meldet.",
     "work.chess":
       "Eine vollständige Schach-Engine: alle FIDE-Regeln und ein Minimax-Bot mit Alpha-Beta-Pruning. Die Demo zeigt Bewertung, Anzahl legaler Züge und Stellungs-Hash direkt neben dem Brett.",
     "work.patterns":
