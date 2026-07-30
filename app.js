@@ -27,7 +27,9 @@ const STRINGS = {
     "work.eyebrow": "Work",
     "work.title": "Things you can open right now",
     "work.lede":
-      "No install, no sign-up. The first three run in your browser the moment you click them.",
+      "No install, no sign-up. The first four run in your browser the moment you click them.",
+    "work.outbox":
+      "Commit a database change and publish an event without them coming apart. Two systems cannot commit together, so the fix is not a better ordering of the two calls: it is refusing to have two commits. Includes the claim-query bug that delivered sixty events seventy times.",
     "work.recon":
       "Two systems disagree about a stock count. Most of those disagreements are formatting rather than fact, so every tolerance is opt-in and named per field: a tool that quietly decides two values are equal is more dangerous than one that reports too much.",
     "work.chess":
@@ -68,7 +70,9 @@ const STRINGS = {
     "work.eyebrow": "Projekte",
     "work.title": "Direkt ausprobieren",
     "work.lede":
-      "Keine Installation, keine Anmeldung. Die ersten drei laufen sofort im Browser.",
+      "Keine Installation, keine Anmeldung. Die ersten vier laufen sofort im Browser.",
+    "work.outbox":
+      "Eine Datenbankänderung committen und ein Event veröffentlichen, ohne dass beides auseinanderfällt. Zwei Systeme können nicht gemeinsam committen, also ist die Lösung keine bessere Reihenfolge der zwei Aufrufe, sondern sich zu weigern, zwei Commits zu haben. Inklusive des Claim-Query-Bugs, der sechzig Events siebzigmal zugestellt hat.",
     "work.recon":
       "Zwei Systeme sind sich über einen Bestand uneinig. Die meisten dieser Widersprüche sind Formatierung und nicht Inhalt, deshalb wird jede Toleranz bewusst und pro Feld gesetzt: ein Werkzeug, das stillschweigend entscheidet, zwei Werte seien gleich, ist gefährlicher als eins, das zu viel meldet.",
     "work.chess":
