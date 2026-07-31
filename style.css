@@ -24,7 +24,6 @@
   --faint:  #8FA9BC;
   --accent: #E8552B;
   --select: #2B8FEA;
-  --ok:     #2FB86B;
 
   --card:  #FFFFFF;
   --panel: #EDF1F6;
@@ -32,6 +31,17 @@
 
   --lift:   0 20px 50px -32px rgba(20, 19, 16, 0.32);
   --lift-2: 0 34px 64px -38px rgba(21, 32, 43, 0.5);
+
+  /* Glass. Three parts, and all three are needed or it just looks washed out:
+     a translucent fill, a blur that also lifts saturation so the sky behind
+     keeps its colour instead of going grey, and a one-pixel highlight along
+     the top edge where the light would catch a real pane.
+     Opacity is the readability dial. Below about 60% the body copy starts
+     fighting the clouds, so 68% is as far as this goes. */
+  --glass:      color-mix(in srgb, var(--card) 68%, transparent);
+  --glass-thin: color-mix(in srgb, var(--card) 55%, transparent);
+  --glass-blur: saturate(180%) blur(20px);
+  --glass-top:  inset 0 1px 0 rgba(255, 255, 255, 0.6);
 
   /* The sky. Three fixed layers: a sun glow top right, a cool wash bottom
      left, and a vertical ramp that lightens toward the horizon. Fixed, so it
@@ -65,7 +75,6 @@
   --faint:  #6C879A;
   --accent: #FF6A3D;
   --select: #4FA6F0;
-  --ok:     #3ED17E;
 
   --card:  #14222F;
   --panel: #1B2C3B;
@@ -73,6 +82,15 @@
 
   --lift:   0 20px 50px -30px rgba(0, 0, 0, 0.75);
   --lift-2: 0 34px 64px -34px rgba(0, 0, 0, 0.85);
+
+  /* Glass at night. The fill is a touch more opaque because the night sky is
+     darker than the panel, so light text needs the surface to hold its own,
+     and the top highlight drops to a hint: a bright white line on a dark pane
+     reads as a border rather than as light. */
+  --glass:      color-mix(in srgb, var(--card) 72%, transparent);
+  --glass-thin: color-mix(in srgb, var(--card) 60%, transparent);
+  --glass-blur: saturate(170%) blur(20px);
+  --glass-top:  inset 0 1px 0 rgba(255, 255, 255, 0.09);
 
   /* The same three layers after sunset. The glow stays top right because the
      sun has only just gone, and the ramp still lightens downward, which is
@@ -199,8 +217,9 @@ a { color: inherit; }
   align-items: center;
   gap: .75rem;
   padding: 0 .7rem;
-  background: color-mix(in srgb, var(--card) 88%, transparent);
-  backdrop-filter: blur(10px);
+  background: color-mix(in srgb, var(--card) 82%, transparent);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid var(--edge);
   font: 700 10px/1 var(--mono);
   color: var(--faint);
@@ -277,8 +296,6 @@ a { color: inherit; }
   letter-spacing: .04em;
 }
 
-.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--faint); flex: none; }
-.dot-ok { background: var(--ok); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 22%, transparent); }
 
 /* --------------------------------------------------------------- chrome -- */
 /* Three floating pills over the sky: status left, nav centre, actions right. */
@@ -303,11 +320,12 @@ a { color: inherit; }
   align-items: center;
   gap: .5rem;
   padding: .55rem .9rem;
-  background: color-mix(in srgb, var(--card) 92%, transparent);
-  backdrop-filter: blur(12px);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--edge);
   border-radius: 999px;
-  box-shadow: var(--lift);
+  box-shadow: var(--lift), var(--glass-top);
   font: 600 .82rem/1 var(--sans);
   color: var(--ink);
   white-space: nowrap;
@@ -420,10 +438,12 @@ h3 { font-size: 1.16rem; line-height: 1.2; letter-spacing: -.02em; }
   gap: .55rem;
   padding: .6rem 1rem;
   margin-bottom: clamp(1.5rem, 4.5vw, 2.75rem);
-  background: var(--card);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--edge);
   border-radius: 12px;
-  box-shadow: var(--lift);
+  box-shadow: var(--lift), var(--glass-top);
   font: 600 .88rem/1 var(--sans);
   color: var(--ink);
 }
@@ -489,11 +509,13 @@ h3 { font-size: 1.16rem; line-height: 1.2; letter-spacing: -.02em; }
   padding: .82rem 1.35rem;
   border-radius: 999px;
   border: 1px solid var(--edge);
-  background: var(--card);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   color: var(--ink);
   font: 700 .92rem/1 var(--sans);
   text-decoration: none;
-  box-shadow: var(--lift);
+  box-shadow: var(--lift), var(--glass-top);
   transition: transform .18s, box-shadow .18s, background .18s;
 }
 
@@ -507,10 +529,12 @@ h3 { font-size: 1.16rem; line-height: 1.2; letter-spacing: -.02em; }
 
 .card {
   position: relative;
-  background: var(--card);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--edge);
   border-radius: var(--r-card);
-  box-shadow: var(--lift);
+  box-shadow: var(--lift), var(--glass-top);
   padding: 1.5rem;
   transition: transform .2s, box-shadow .2s;
 }
@@ -602,7 +626,7 @@ a.card:hover { transform: translateY(-2px); box-shadow: var(--lift-2); }
   padding: .42rem .8rem;
   border: 1px solid var(--edge);
   border-radius: 999px;
-  background: var(--card);
+  background: var(--glass-thin);
   font: 600 .8rem/1 var(--sans);
   color: var(--ink);
   white-space: nowrap;
@@ -833,20 +857,36 @@ a.card:hover .frame-note { opacity: 1; }
 
 /* The wordmark, cropped at the baseline. Sized in vw so it always fills the
    width, with the descenders running off the bottom edge on purpose. */
-/* The wordmark fills the column and is cropped at the baseline on purpose, so
-   the descenders run off the bottom edge. It must not crop at the right edge:
-   a missing last letter reads as a bug rather than as a decision. The vw
-   coefficient is tuned to this exact string in Archivo at wdth 100, and it is
-   set narrower than the headings because a run of fourteen characters at 800
-   is already wide enough without the width axis on top. */
+/* The wordmark fills the column edge to edge and is cropped at the baseline on
+   purpose, so the descenders run off the bottom. It must not crop at the right
+   edge, and it must not stop short of it either: both read as a mistake rather
+   than as a decision.
+ *
+ * Sized against the container, not the viewport. A vw-based size looks right
+ * at one window width and wrong at every other, because the column is capped
+ * at 78rem while vw keeps growing: past about 1350px the two diverge, and the
+ * clamp ceiling that stops the text overflowing on a wide screen is the same
+ * ceiling that leaves a gap on the right. 1cqw is one percent of the column,
+ * so the mark tracks the thing it is supposed to line up with and the
+ * coefficient holds at every width.
+ *
+ * The vw version stays as a fallback for browsers without container queries,
+ * tuned to be slightly small rather than slightly large: falling short is
+ * untidy, overflowing loses a letter. */
+.foot .wrap { container-type: inline-size; }
+
 .foot-mark {
   margin: clamp(1.75rem, 5vw, 3.25rem) 0 0;
-  font: 800 clamp(2rem, 11.2vw, 10.5rem)/.82 var(--display);
+  font: 800 clamp(2rem, 10.6vw, 9.8rem)/.82 var(--display);
   font-variation-settings: "wdth" 100;
   letter-spacing: -.05em;
   white-space: nowrap;
   color: color-mix(in srgb, currentColor 92%, transparent);
   user-select: none;
+}
+
+@supports (font-size: 1cqw) {
+  .foot-mark { font-size: 14.3cqw; }
 }
 
 .foot-mark span { color: var(--accent); }
@@ -918,9 +958,10 @@ a.card:hover .frame-note { opacity: 1; }
   display: grid; place-items: center;
   border: 1px solid var(--edge);
   border-radius: 50%;
-  background: color-mix(in srgb, var(--card) 92%, transparent);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--lift);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--lift), var(--glass-top);
   color: var(--ink);
   cursor: pointer;
   opacity: 0;
