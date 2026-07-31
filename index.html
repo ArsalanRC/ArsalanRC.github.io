@@ -129,7 +129,11 @@
         <span class="label" data-i18n="numbers.deps">Runtime dependencies</span>
       </div>
       <div class="card s3 stat reveal">
-        <b>27</b>
+        <!-- Counts itself: this is the figure after the pull request carrying
+             it merges, so mid-session it reads one high. Read from gh api, not
+             from memory. 41 at 2026-07-31, plus this change and its twin on the
+             profile README. -->
+        <b>43</b>
         <span class="label" data-i18n="numbers.prs">Merged pull requests</span>
       </div>
 
