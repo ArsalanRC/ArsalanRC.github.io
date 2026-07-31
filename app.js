@@ -1,316 +1,365 @@
 /**
  * arsalanrc.github.io
  *
- * Theme, language, and the 3D hero.
+ * Everything the page does at runtime: translation, the two toggles, and the
+ * four live readouts. No framework and no build step, because the page is
+ * served by GitHub Pages straight out of the repository.
  *
- * The 3D is strictly progressive enhancement. The still grid underneath is the
- * real content and paints immediately; three.js is only imported after first
- * paint, and the canvas only fades in once the model is actually on screen. No
- * WebGL, a failed fetch, or reduced-motion all leave a page that still works.
+ * The rule the whole design rests on: every readout here is real. The clock is
+ * the visitor's clock, the percentage is the real scroll position, the cursor
+ * follows the real pointer. Nothing is a drawing of a feature. A fake readout
+ * would be worse than none at all, because the page is claiming precision.
  */
 
 const root = document.documentElement;
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// ------------------------------------------------------------------ copy
+/* --------------------------------------------------------------- strings -- */
 
 const STRINGS = {
   en: {
     "meta.title": "Arsalan Khadim · Software architect",
-    "nav.lang": "Deutsch",
+
+    "ruler.live": "LIVE",
+    "chrome.status": "8 repos live · 263 tests green",
+    "nav.work": "Work",
+    "nav.numbers": "Numbers",
+    "nav.approach": "Approach",
+    "nav.contact": "Contact",
+    "nav.lang": "DE",
+    "cursor.you": "you",
+
+    "hero.badgeStrong": "Eight repositories",
+    "hero.badgeRest": "public, tested, running",
     "hero.kicker": "Software architect · Full-stack engineer",
+    "hero.title": 'I make systems<br>agree with <span class="accent">each other</span>.',
     "hero.lede":
-      "I make systems that were never designed to talk to each other exchange data reliably, every day, without anyone noticing. Warehouse management, ERP integrations, logistics APIs. The rest of the time I build engines and libraries from scratch.",
-    "hero.playChess": "Play my chess engine",
-    "hero.seePatterns": "See integration-patterns",
+      "Warehouse systems, ERP integrations and logistics APIs by day. Engines, libraries and things you can click the rest of the time. Everything below runs in a browser, and every one of them tells you what it will not do.",
+    "hero.ctaPlay": "Play the chess engine",
+    "hero.ctaWork": "See the work",
+
+    "numbers.eyebrow": "By the numbers",
+    "numbers.title": "Counted, not estimated",
+    "numbers.lede":
+      "Read off the API rather than remembered, because a stale number on a portfolio reads as neglect rather than as a snapshot.",
+    "numbers.repos": "Public repositories",
+    "numbers.tests": "Tests passing",
+    "numbers.deps": "Runtime dependencies",
+    "numbers.prs": "Merged pull requests",
+    "numbers.capsLabel": "What I actually do",
+    "numbers.cap1": "Systems architecture",
+    "numbers.cap2": "ERP and warehouse integration",
+    "numbers.cap3": "Distributed correctness",
+    "numbers.cap4": "Engines and search",
+    "numbers.cap5": "Developer tooling",
+    "numbers.capsBody":
+      "The day job is making systems that were never designed to talk to each other exchange data reliably, every day, without anyone noticing. The repositories are where the same problems get solved from scratch and written down.",
+    "numbers.stackLabel": "Shipping today",
+    "numbers.stackBody":
+      "A language appears here once something public is written in it. Rust, C++, C and C# are on the plan and are deliberately not on this list yet.",
 
     "work.eyebrow": "Work",
     "work.title": "Things you can open right now",
     "work.lede":
-      "No install, no sign-up. The first five run in your browser the moment you click them.",
+      "No install, no sign-up. Five of the six run in your browser the moment you click them, and the sixth is private and written up instead.",
+    "work.hover": "hover to scroll",
+    "work.private": "private repository",
     "work.stylo":
-      "Nineteen stylometric features of a text, each shown against the range a corpus of human academic writing actually occupies. It never says who wrote something, and the limitations sit above the numbers rather than below them: a large distance is a reason to look at the breakdown, never evidence about a person.",
+      "Nineteen stylometric features of a text, each against the range a corpus of human academic writing actually occupies. It never says who wrote something, and the limitations sit above the numbers rather than below them.",
     "work.outbox":
-      "Commit a database change and publish an event without them coming apart. Two systems cannot commit together, so the fix is not a better ordering of the two calls: it is refusing to have two commits. Includes the claim-query bug that delivered sixty events seventy times.",
+      "Commit a database change and publish an event without them coming apart. Two systems cannot commit together, so the fix is not a better ordering of the two calls: it is refusing to have two commits.",
     "work.recon":
-      "Two systems disagree about a stock count. Most of those disagreements are formatting rather than fact, so every tolerance is opt-in and named per field: a tool that quietly decides two values are equal is more dangerous than one that reports too much.",
+      "Two systems disagree about a stock count. Most of those disagreements are formatting rather than fact, so every tolerance is opt-in and named per field. Reads CSV, or streams straight from Postgres.",
     "work.chess":
-      "A complete chess engine: full FIDE rules and a minimax bot with alpha-beta pruning. The demo puts the engine's evaluation, legal move count and position hash on screen beside the board.",
+      "A complete chess engine: full FIDE rules and a minimax bot with alpha-beta pruning. The demo puts the evaluation, legal move count and position hash on screen beside the board.",
     "work.patterns":
-      "The logic that keeps system-to-system integrations correct. Idempotency and retry with full jitter, each shipped with the failure it prevents and the way people get it wrong.",
+      "The logic that keeps system-to-system integrations correct. Idempotency and retry with full jitter, each shipped with the failure it prevents and the way people usually get it wrong.",
     "work.arena":
-      "28 games on one platform under a single architectural rule: game logic never touches React. Every engine is pure TypeScript, which is why 940 tests run without a DOM. Source is private.",
+      "28 games on one platform under a single architectural rule: game logic never touches React. Every engine is pure TypeScript, which is why 940 tests run without a DOM.",
 
     "how.eyebrow": "Approach",
     "how.title": "How I think about building",
-    "how.p1t": "Boundaries before features",
-    "how.p1": "The layer split is the one decision you cannot cheaply undo later, so it deserves the time. Everything else is negotiable.",
-    "how.p2t": "Purity where it counts",
-    "how.p2": "Business logic that depends on no framework can actually be tested, reused and reasoned about. Push side effects to the edges and keep the middle honest.",
-    "how.p3t": "Secure by default, not by review",
-    "how.p3": "Row-level security enabled before the table has rows, and deny-by-default throughout. A permission you never granted cannot be the one that leaks.",
-    "how.p4t": "Write it down",
-    "how.p4": "Every project I own carries docs a new engineer, or an LLM, can read cold and be useful within the hour. The more people touch the code, the more this matters.",
+    "how.p1t": "The type system is the comment that cannot go stale",
+    "how.p1":
+      "Where a rule can be made impossible to break, it should be, instead of written down and hoped for. One library takes a live connection and never a pool, purely so the dangerous version cannot be written at all.",
+    "how.p2t": "Test the thing that only breaks under load",
+    "how.p2":
+      "The claim query in pg-outbox publishes, retries and dead-letters flawlessly with a single relay. It duplicates only under concurrency, which means the untested version ships and then fails at somebody else's three in the morning.",
+    "how.p3t": "A plausible number is worse than a crash",
+    "how.p3":
+      "Two bugs in stylo were found by measuring a corpus and looking at the outliers, not by a test. Neither threw. They returned numbers you would believe, which is the failure that survives review.",
+    "how.p4t": "Say what it cannot do, prominently",
+    "how.p4":
+      "Every README here leads with the limitations rather than burying them. Being straight about the edges is what makes the middle credible, and it is the part most projects skip.",
+    "how.note":
+      "None of the above is a principle I read somewhere. Each one is written down because getting it wrong cost me something first, and the cost is in the repository history if you want to check.",
 
-    "contact.eyebrow": "Contact",
-    "contact.title": "Get in touch",
-    "contact.body": "Happy to walk through any of the architecture in a conversation, including the parts that are not public.",
+    "contact.eyebrow": "Get in touch",
+    "contact.note": "LinkedIn is the contact route. No email published anywhere, on purpose.",
 
+    "foot.workHead": "Work",
+    "foot.elseHead": "Elsewhere",
+    "foot.source": "Source of this page",
     "foot.built": "Built by hand, no template",
-    "foot.source": "Source",
+    "foot.legal": "© 2026 Arsalan Khadim",
   },
 
   de: {
     "meta.title": "Arsalan Khadim · Softwarearchitekt",
-    "nav.lang": "English",
+
+    "ruler.live": "LIVE",
+    "chrome.status": "8 Repos live · 263 Tests grün",
+    "nav.work": "Projekte",
+    "nav.numbers": "Zahlen",
+    "nav.approach": "Haltung",
+    "nav.contact": "Kontakt",
+    "nav.lang": "EN",
+    "cursor.you": "du",
+
+    "hero.badgeStrong": "Acht Repositories",
+    "hero.badgeRest": "öffentlich, getestet, im Betrieb",
     "hero.kicker": "Softwarearchitekt · Full-Stack-Engineer",
+    "hero.title": 'Ich bringe Systeme<br>dazu, sich <span class="accent">zu einigen</span>.',
     "hero.lede":
-      "Ich bringe Systeme dazu, zuverlässig Daten auszutauschen, die nie dafür gebaut wurden. Jeden Tag, ohne dass es jemandem auffällt. Lagerverwaltung, ERP-Integrationen, Logistik-APIs. Den Rest der Zeit baue ich Engines und Bibliotheken von Grund auf.",
-    "hero.playChess": "Schach-Engine spielen",
-    "hero.seePatterns": "integration-patterns ansehen",
+      "Tagsüber Lagerverwaltung, ERP-Integrationen und Logistik-APIs. Den Rest der Zeit Engines, Bibliotheken und Dinge, die man anklicken kann. Alles hier läuft im Browser, und jedes davon sagt, was es nicht kann.",
+    "hero.ctaPlay": "Schach-Engine spielen",
+    "hero.ctaWork": "Projekte ansehen",
+
+    "numbers.eyebrow": "In Zahlen",
+    "numbers.title": "Gezählt, nicht geschätzt",
+    "numbers.lede":
+      "Aus der API gelesen statt aus dem Gedächtnis, denn eine veraltete Zahl in einem Portfolio wirkt nachlässig und nicht wie eine Momentaufnahme.",
+    "numbers.repos": "Öffentliche Repositories",
+    "numbers.tests": "Tests grün",
+    "numbers.deps": "Laufzeit-Abhängigkeiten",
+    "numbers.prs": "Gemergte Pull Requests",
+    "numbers.capsLabel": "Was ich tatsächlich mache",
+    "numbers.cap1": "Systemarchitektur",
+    "numbers.cap2": "ERP- und Lageranbindung",
+    "numbers.cap3": "Verteilte Korrektheit",
+    "numbers.cap4": "Engines und Suche",
+    "numbers.cap5": "Entwicklerwerkzeuge",
+    "numbers.capsBody":
+      "Im Beruf geht es darum, Systeme, die nie füreinander gedacht waren, jeden Tag zuverlässig Daten austauschen zu lassen, ohne dass es jemandem auffällt. In den Repositories werden dieselben Probleme von Grund auf gelöst und aufgeschrieben.",
+    "numbers.stackLabel": "Aktuell im Einsatz",
+    "numbers.stackBody":
+      "Eine Sprache steht hier, sobald etwas Öffentliches darin geschrieben ist. Rust, C++, C und C# sind geplant und stehen bewusst noch nicht dabei.",
 
     "work.eyebrow": "Projekte",
     "work.title": "Direkt ausprobieren",
     "work.lede":
-      "Keine Installation, keine Anmeldung. Die ersten fünf laufen sofort im Browser.",
+      "Keine Installation, keine Anmeldung. Fünf der sechs laufen sofort im Browser, das sechste ist privat und stattdessen beschrieben.",
+    "work.hover": "zum Scrollen hovern",
+    "work.private": "privates Repository",
     "work.stylo":
-      "Neunzehn stylometrische Merkmale eines Textes, jedes gegen den Bereich gestellt, den ein Korpus menschlicher akademischer Prosa tatsächlich einnimmt. Wer etwas geschrieben hat, sagt es nie, und die Grenzen stehen über den Zahlen statt darunter: ein großer Abstand ist ein Grund, sich die Aufschlüsselung anzusehen, nie ein Beleg über eine Person.",
+      "Neunzehn stylometrische Merkmale eines Textes, jedes gegen den Bereich gestellt, den ein Korpus menschlicher akademischer Prosa tatsächlich einnimmt. Wer etwas geschrieben hat, sagt es nie, und die Grenzen stehen über den Zahlen statt darunter.",
     "work.outbox":
-      "Eine Datenbankänderung committen und ein Event veröffentlichen, ohne dass beides auseinanderfällt. Zwei Systeme können nicht gemeinsam committen, also ist die Lösung keine bessere Reihenfolge der zwei Aufrufe, sondern sich zu weigern, zwei Commits zu haben. Inklusive des Claim-Query-Bugs, der sechzig Events siebzigmal zugestellt hat.",
+      "Eine Datenbankänderung committen und ein Event veröffentlichen, ohne dass beides auseinanderfällt. Zwei Systeme können nicht gemeinsam committen, also ist die Lösung keine bessere Reihenfolge der Aufrufe, sondern sich zu weigern, zwei Commits zu haben.",
     "work.recon":
-      "Zwei Systeme sind sich über einen Bestand uneinig. Die meisten dieser Widersprüche sind Formatierung und nicht Inhalt, deshalb wird jede Toleranz bewusst und pro Feld gesetzt: ein Werkzeug, das stillschweigend entscheidet, zwei Werte seien gleich, ist gefährlicher als eins, das zu viel meldet.",
+      "Zwei Systeme sind sich über einen Bestand uneinig. Die meisten Widersprüche sind Formatierung und nicht Inhalt, deshalb wird jede Toleranz bewusst und pro Feld gesetzt. Liest CSV oder streamt direkt aus Postgres.",
     "work.chess":
       "Eine vollständige Schach-Engine: alle FIDE-Regeln und ein Minimax-Bot mit Alpha-Beta-Pruning. Die Demo zeigt Bewertung, Anzahl legaler Züge und Stellungs-Hash direkt neben dem Brett.",
     "work.patterns":
       "Die Logik, die Integrationen zwischen Systemen korrekt hält. Idempotenz und Retry mit Full Jitter, jeweils mit dem Fehlerfall, den sie verhindern, und der typischen falschen Umsetzung.",
     "work.arena":
-      "28 Spiele auf einer Plattform unter einer einzigen Architekturregel: Spiellogik fasst React nie an. Jede Engine ist reines TypeScript, deshalb laufen 940 Tests ganz ohne DOM. Quellcode privat.",
+      "28 Spiele auf einer Plattform unter einer einzigen Architekturregel: Spiellogik fasst React nie an. Jede Engine ist reines TypeScript, deshalb laufen 940 Tests ganz ohne DOM.",
 
-    "how.eyebrow": "Herangehensweise",
-    "how.title": "Wie ich an Software herangehe",
-    "how.p1t": "Grenzen vor Features",
-    "how.p1": "Die Schichtaufteilung ist die eine Entscheidung, die sich später nicht mehr billig zurücknehmen lässt. Also verdient sie die Zeit. Alles andere ist verhandelbar.",
-    "how.p2t": "Reinheit dort, wo sie zählt",
-    "how.p2": "Fachlogik ohne Framework-Abhängigkeit lässt sich wirklich testen, wiederverwenden und durchdenken. Seiteneffekte an den Rand, die Mitte bleibt sauber.",
-    "how.p3t": "Sicher by default, nicht durch Review",
-    "how.p3": "Row Level Security ist aktiv, bevor die Tabelle Zeilen hat, und im Zweifel wird verweigert. Ein Recht, das nie vergeben wurde, kann auch nicht leaken.",
-    "how.p4t": "Aufschreiben",
-    "how.p4": "Zu jedem Projekt gehören Dokumente, die ein neuer Entwickler oder ein LLM kalt lesen und binnen einer Stunde nutzen kann. Je mehr Leute den Code anfassen, desto wichtiger wird das.",
+    "how.eyebrow": "Haltung",
+    "how.title": "Wie ich an Bauen herangehe",
+    "how.p1t": "Das Typsystem ist der Kommentar, der nicht veralten kann",
+    "how.p1":
+      "Wo sich eine Regel unmöglich machen lässt, sollte sie unmöglich sein, statt aufgeschrieben und erhofft. Eine Bibliothek nimmt bewusst eine offene Verbindung und niemals einen Pool, damit sich die gefährliche Variante gar nicht schreiben lässt.",
+    "how.p2t": "Prüfen, was erst unter Last kaputtgeht",
+    "how.p2":
+      "Die Claim-Query in pg-outbox veröffentlicht, wiederholt und schreibt Dead Letters tadellos, solange ein einzelnes Relay läuft. Sie dupliziert erst unter Nebenläufigkeit, und deshalb geht die ungetestete Fassung in Betrieb und scheitert nachts um drei bei jemand anderem.",
+    "how.p3t": "Eine plausible Zahl ist schlimmer als ein Absturz",
+    "how.p3":
+      "Zwei Fehler in stylo kamen dadurch ans Licht, dass ein Korpus vermessen und die Ausreißer angesehen wurden, nicht durch einen Test. Keiner stürzte ab. Sie lieferten Zahlen, die man glaubt, und das ist der Fehler, der ein Review übersteht.",
+    "how.p4t": "Deutlich sagen, was nicht geht",
+    "how.p4":
+      "Jede README hier beginnt mit den Grenzen, statt sie hinten zu verstecken. Ehrlich über die Ränder zu sein macht die Mitte glaubwürdig, und genau diesen Teil lassen die meisten Projekte weg.",
+    "how.note":
+      "Nichts davon ist ein Grundsatz, den ich irgendwo gelesen habe. Jeder steht hier, weil es mich vorher etwas gekostet hat, und die Kosten stehen in der Repo-Historie, falls jemand nachsehen will.",
 
     "contact.eyebrow": "Kontakt",
-    "contact.title": "Kontakt aufnehmen",
-    "contact.body": "Über die Architektur spreche ich gern im Detail, auch über die Teile, die nicht öffentlich sind.",
+    "contact.note": "LinkedIn ist der Weg. Keine E-Mail-Adresse veröffentlicht, mit Absicht.",
 
-    "foot.built": "Von Hand gebaut, kein Template",
-    "foot.source": "Quellcode",
+    "foot.workHead": "Projekte",
+    "foot.elseHead": "Anderswo",
+    "foot.source": "Quelltext dieser Seite",
+    "foot.built": "Von Hand gebaut, keine Vorlage",
+    "foot.legal": "© 2026 Arsalan Khadim",
   },
 };
 
-const themeBtn = document.getElementById("theme-btn");
-const langBtn = document.getElementById("lang-btn");
+/* ----------------------------------------------------------- translation -- */
+
+const dict = () => STRINGS[root.lang] ?? STRINGS.en;
 
 function applyLang(lang) {
-  const dict = STRINGS[lang] ?? STRINGS.en;
   root.lang = lang;
-  for (const node of document.querySelectorAll("[data-i18n]")) {
-    const value = dict[node.dataset.i18n];
-    if (value !== undefined) node.textContent = value;
+  const d = dict();
+
+  for (const el of document.querySelectorAll("[data-i18n]")) {
+    const v = d[el.dataset.i18n];
+    if (v !== undefined) el.textContent = v;
   }
-  document.title = dict["meta.title"];
+  /* A separate attribute for the few strings that legitimately carry markup,
+     so the common path never assigns innerHTML. */
+  for (const el of document.querySelectorAll("[data-i18n-html]")) {
+    const v = d[el.dataset.i18nHtml];
+    if (v !== undefined) el.innerHTML = v;
+  }
+
+  if (d["meta.title"]) document.title = d["meta.title"];
   try { localStorage.setItem("ak-lang", lang); } catch { /* private mode */ }
 }
 
-function applyTheme(theme) {
-  root.dataset.theme = theme;
-  try { localStorage.setItem("ak-theme", theme); } catch { /* private mode */ }
-  window.dispatchEvent(new CustomEvent("themechange", { detail: theme }));
+document.getElementById("lang-btn")?.addEventListener("click", () => {
+  applyLang(root.lang === "de" ? "en" : "de");
+});
+
+/* ----------------------------------------------------------------- theme -- */
+
+document.getElementById("theme-btn")?.addEventListener("click", () => {
+  const next = root.dataset.theme === "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  document.querySelector('meta[name="theme-color"]')
+    ?.setAttribute("content", next === "dark" ? "#070E17" : "#4E9BD9");
+  try { localStorage.setItem("ak-theme", next); } catch { /* private mode */ }
+});
+
+/* ----------------------------------------------------------------- clock -- */
+/* The visitor's clock, not a server's and not a fake one. Ticking once a second
+   is the point: a still clock reads as a screenshot of a clock. */
+
+const clock = document.getElementById("clock");
+const footClock = document.getElementById("foot-clock");
+
+function tick() {
+  const now = new Date();
+  const hms = now.toLocaleTimeString(root.lang === "de" ? "de-DE" : "en-GB", { hour12: false });
+  if (clock) clock.textContent = hms;
+  if (footClock) {
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone || "local";
+    footClock.textContent = `${hms} · ${zone}`;
+  }
 }
 
-langBtn.addEventListener("click", () => applyLang(root.lang === "de" ? "en" : "de"));
-themeBtn.addEventListener("click", () => applyTheme(root.dataset.theme === "dark" ? "light" : "dark"));
+tick();
+setInterval(tick, 1000);
+
+/* -------------------------------------------------------- scroll readout -- */
+/* The ruler fill and the percentage badge are one measurement shown two ways,
+   so they are computed once and written together. */
+
+const fill = document.getElementById("ruler-fill");
+const pct = document.getElementById("pct");
+const totop = document.getElementById("totop");
+
+let queued = false;
+
+function onScroll() {
+  if (queued) return;
+  queued = true;
+  requestAnimationFrame(() => {
+    queued = false;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    if (fill) fill.style.width = `${(p * 100).toFixed(2)}%`;
+    if (pct) pct.textContent = `${Math.round(p * 100)}%`;
+    totop?.classList.toggle("is-on", window.scrollY > window.innerHeight * 0.6);
+    revealPass();
+  });
+}
+
+addEventListener("scroll", onScroll, { passive: true });
+addEventListener("resize", onScroll, { passive: true });
+onScroll();
+
+totop?.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+});
+
+/* ---------------------------------------------------------------- cursor -- */
+/* Follows the real pointer. The CSS already hides it on touch and under reduced
+   motion; this bails out too, so the listener is never even attached. */
+
+const cursor = document.getElementById("cursor");
+
+if (cursor && !reduced && matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  let x = innerWidth / 2, y = innerHeight / 2, cx = x, cy = y, raf = 0;
+
+  /* Eased rather than pinned. A label welded to the pointer reads as a bug;
+     trailing very slightly reads as somebody else's cursor, which is the idea. */
+  const follow = () => {
+    cx += (x - cx) * 0.32;
+    cy += (y - cy) * 0.32;
+    cursor.style.transform = `translate(${cx}px, ${cy}px)`;
+    raf = Math.abs(x - cx) + Math.abs(y - cy) > 0.4 ? requestAnimationFrame(follow) : 0;
+  };
+
+  addEventListener("pointermove", (e) => {
+    x = e.clientX;
+    y = e.clientY;
+    /* First real move: place it before revealing, so it never flashes at the
+       origin on its way to the pointer. */
+    if (!cursor.classList.contains("is-live")) {
+      cx = x; cy = y;
+      cursor.style.transform = `translate(${cx}px, ${cy}px)`;
+      cursor.classList.add("is-live");
+    }
+    if (!raf) raf = requestAnimationFrame(follow);
+  }, { passive: true });
+
+  /* A pointer that leaves the window has no position worth drawing. */
+  addEventListener("pointerleave", () => cursor.classList.remove("is-live"));
+}
+
+/* ---------------------------------------------------------------- reveal -- */
+/* Staggered within a group, so a row of four cards arrives as a row rather than
+   as four separate events.
+ *
+ * Deliberately not an IntersectionObserver. The obvious version was one, and it
+ * left a third of the page permanently invisible: the observer coalesces its
+ * callbacks, so any element that enters and leaves the viewport between two
+ * ticks never reports as intersecting and never gets revealed. Fast scrolling,
+ * a deep link into the middle of the page, or End all reproduce it, and the
+ * failure is silent and permanent, which is the worst shape a bug can have on
+ * a page whose entire job is to be read.
+ *
+ * A position check cannot miss in the same way: anything at or above the
+ * threshold is revealed, whether it got there by scrolling or by teleporting. */
+
+const pending = reduced ? [] : [...document.querySelectorAll(".reveal")];
+
+if (reduced) {
+  for (const el of document.querySelectorAll(".reveal")) el.classList.add("is-in");
+}
+
+function revealPass() {
+  if (!pending.length) return;
+  const limit = innerHeight * 0.92;
+
+  for (let i = pending.length - 1; i >= 0; i--) {
+    const el = pending[i];
+    if (el.getBoundingClientRect().top >= limit) continue;
+
+    const group = [...(el.parentElement?.children ?? [])]
+      .filter((c) => c.classList.contains("reveal"));
+    el.style.transitionDelay = `${Math.min(group.indexOf(el), 5) * 70}ms`;
+    el.classList.add("is-in");
+    pending.splice(i, 1);
+  }
+}
+
+/* ------------------------------------------------------------------------- */
 
 applyLang(root.lang === "de" ? "de" : "en");
+revealPass();
 
-// ------------------------------------------------------------------ 3D hero
-
-/**
- * The model is a promo template: a ring, six 1700x950 card slots, and some
- * placeholder text geometry. The text meshes get hidden (real HTML type is
- * sharper and can be translated), the ring is recoloured to the page accent,
- * and each card slot receives a screenshot of an actual project.
- */
-const CARD_TEXTURES = [
-  "arena-lobby", "arena-ludo", "chess-board",
-  "arena-languages", "patterns-retry", "arena-rtl",
-];
-/**
- * three.js sanitises glTF node names, so "project name" arrives as
- * "project_name". Compare on a normalised form rather than the raw string,
- * which is a silent no-op waiting to happen otherwise.
- */
-const HIDE = new Set([
-  "project name", "promo", "text", "your logo text", "yourlogo png",
-  // The template's backdrop torus. It is a large gold ring that means nothing
-  // and reads as a stray graphic rather than part of the work, so it goes.
-  "bg shape",
-]);
-const norm = (s) => (s || "").toLowerCase().replace(/[_+]/g, " ").replace(/\s+/g, " ").trim();
-
-function webglAvailable() {
-  try {
-    const c = document.createElement("canvas");
-    return Boolean(c.getContext("webgl2") || c.getContext("webgl"));
-  } catch { return false; }
-}
-
-async function initScene() {
-  if (reduced || !webglAvailable()) return;
-
-  const THREE = await import("three");
-  const { GLTFLoader } = await import("three/addons/GLTFLoader.js");
-
-  const canvas = document.getElementById("scene");
-  const stage = document.querySelector(".stage");
-
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-  renderer.outputColorSpace = THREE.SRGBColorSpace;
-
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 4000);
-
-  scene.add(new THREE.AmbientLight(0xffffff, 2.2));
-  const key = new THREE.DirectionalLight(0xffffff, 1.6);
-  key.position.set(2, 4, 6);
-  scene.add(key);
-
-  const loader = new THREE.TextureLoader();
-  const gltf = await new GLTFLoader().loadAsync("./assets/scene.glb");
-  const model = gltf.scene;
-
-  // A pivot so mouse-look rotates around the artwork rather than the origin.
-  const pivot = new THREE.Group();
-  scene.add(pivot);
-
-  const ringColor = () =>
-    new THREE.Color(getComputedStyle(root).getPropertyValue("--accent").trim() || "#E8A33D");
-
-  const ringMaterials = [];
-  let cardIndex = 0;
-
-  model.traverse((o) => {
-    if (!o.isMesh) return;
-    const name = norm(o.name);
-
-    if (HIDE.has(name)) { o.visible = false; return; }
-
-    if (name.includes("1700x950")) {
-      const file = CARD_TEXTURES[cardIndex++ % CARD_TEXTURES.length];
-      const tex = loader.load(`./assets/cards/${file}.jpg`);
-      tex.colorSpace = THREE.SRGBColorSpace;
-      // No UV correction. The reflex with a .glb is to set flipY = false,
-      // because glTF puts the UV origin top-left while three assumes
-      // bottom-left. That is wrong here: this file was written by
-      // THREE.GLTFExporter, so its UVs already follow three's convention and
-      // the loader default is correct. Forcing flipY = false flipped every
-      // screenshot vertically.
-      o.material = new THREE.MeshBasicMaterial({ map: tex, toneMapped: false });
-      return;
-    }
-
-    // Everything else (the ring, mostly) takes the page accent so the scene
-    // belongs to the palette instead of sitting on top of it as grey plastic.
-    const mat = new THREE.MeshStandardMaterial({
-      color: ringColor(), roughness: 0.45, metalness: 0.1,
-    });
-    o.material = mat;
-    ringMaterials.push(mat);
-  });
-
-  pivot.add(model);
-
-  // World matrices must be current before measuring. Box3.setFromObject reads
-  // matrixWorld, and a freshly loaded graph still has identity matrices, so
-  // measuring first returns raw local coordinates. Here that meant 9465 units
-  // instead of the 339 the model actually occupies once its parent scale is
-  // applied, and the camera ended up 14,000 units from a speck.
-  scene.updateMatrixWorld(true);
-
-  // Frame on the cards, which are the point, and let the ring fall behind.
-  const cards = model.getObjectByName("cards") ?? model;
-  const box = new THREE.Box3().setFromObject(cards);
-  const center = box.getCenter(new THREE.Vector3());
-  const size = box.getSize(new THREE.Vector3());
-
-  model.position.sub(center);                 // cards centred on the pivot origin
-
-  /**
-   * Distance that fits the artwork in both axes. Guessing a multiplier works
-   * on one screen and crops on every other, because the horizontal fit depends
-   * on the aspect ratio and the vertical one does not.
-   */
-  function frame() {
-    const vFov = (camera.fov * Math.PI) / 180;
-    const forHeight = size.y / 2 / Math.tan(vFov / 2);
-    const forWidth = size.x / 2 / (Math.tan(vFov / 2) * camera.aspect);
-    // Tight. With the backdrop ring gone the cards are the whole composition,
-    // so they should fill the stage rather than float in the middle of it.
-    const dist = Math.max(forHeight, forWidth) * 1.02;
-    camera.position.set(0, 0, dist);
-    camera.lookAt(0, 0, 0);
-    camera.near = dist / 100;
-    camera.far = dist * 8;
-    camera.updateProjectionMatrix();
-  }
-
-  window.addEventListener("themechange", () => {
-    const c = ringColor();
-    for (const m of ringMaterials) m.color.copy(c);
-  });
-
-  function resize() {
-    const w = stage.clientWidth, h = stage.clientHeight;
-    renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    frame();                                  // reframe: the fit is aspect-dependent
-  }
-  resize();
-  addEventListener("resize", resize);
-
-  // Mouse-look. Targets are eased toward rather than set directly, so the
-  // scene drifts instead of snapping, and it keeps working from touch too.
-  let targetX = 0, targetY = 0, curX = 0, curY = 0;
-  const MAX = 0.28;
-  function aim(clientX, clientY) {
-    const r = stage.getBoundingClientRect();
-    targetX = ((clientX - r.left) / r.width - 0.5) * 2 * MAX;
-    targetY = ((clientY - r.top) / r.height - 0.5) * 2 * MAX * 0.6;
-  }
-  addEventListener("pointermove", (e) => aim(e.clientX, e.clientY), { passive: true });
-  addEventListener("pointerleave", () => { targetX = 0; targetY = 0; });
-
-  let visible = true;
-  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(stage);
-
-  renderer.setAnimationLoop(() => {
-    if (!visible) return;                     // do not burn battery off-screen
-    curX += (targetX - curX) * 0.05;
-    curY += (targetY - curY) * 0.05;
-    // Rotate the pivot, not the scene, so the lights stay put and the model
-    // turns rather than the whole world turning with it.
-    pivot.rotation.y = curX;
-    pivot.rotation.x = curY;
-    renderer.render(scene, camera);
-  });
-
-  stage.classList.add("is-3d");
-}
-
-// Only after first paint, so the still hero is never held up by a 1.2 MB import.
-addEventListener("load", () => {
-  initScene().catch((err) => {
-    // Failure is silent by design: the still grid is already on screen and the
-    // page reads exactly as intended without any of this.
-    console.warn("3D hero unavailable:", err);
-  });
-});
+/* Images settling and fonts swapping both move things down the page, and an
+   element that was below the fold at load can end up above it afterwards
+   without a scroll event ever firing. */
+addEventListener("load", revealPass);
+document.fonts?.ready.then(revealPass);

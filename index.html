@@ -5,16 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title data-i18n="meta.title">Arsalan Khadim · Software architect</title>
 <meta name="description" content="Arsalan Khadim, software architect and full-stack engineer. Warehouse systems, ERP integrations and logistics APIs by day; engines, libraries and playable demos the rest of the time." />
+<meta name="theme-color" content="#4E9BD9" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="./style.css" />
 <script>
+  /* Before first paint: no theme flash, no language flash. Inline on purpose,
+     because an external file here is a round trip during which the page
+     renders in the wrong theme, which is the exact flash this prevents. */
   (function () {
     var t = null, l = null;
     try { t = localStorage.getItem("ak-theme"); l = localStorage.getItem("ak-lang"); } catch (e) {}
     document.documentElement.dataset.theme =
-      t || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+      t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     var de = (navigator.language || "en").toLowerCase().startsWith("de");
     document.documentElement.lang = l || (de ? "de" : "en");
   })();
@@ -22,137 +26,389 @@
 </head>
 <body>
 
-<header class="topbar">
-  <a class="wordmark" href="#top">arsalan<span class="dim">.khadim</span></a>
-  <nav class="topnav">
-    <a href="https://github.com/ArsalanRC" target="_blank" rel="noopener">
-      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg><span>GitHub</span>
-    </a>
-    <a href="https://www.linkedin.com/in/muhammad-arsalan-khadim-b87550259/" target="_blank" rel="noopener">
-      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg><span>LinkedIn</span>
-    </a>
-    <button type="button" class="pill" id="lang-btn" data-i18n="nav.lang">Deutsch</button>
-    <button type="button" class="icon-btn" id="theme-btn" aria-label="Switch theme">
-      <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.4M12 19.2v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.4 12h2.4M19.2 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
-      <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a6.9 6.9 0 0 0 11.1 11.1z"/></svg>
-    </button>
+<!-- The sky. The gradient is on <body>; the clouds and stars live here so they
+     can drift without moving anything else. -->
+<div class="sky-layer" aria-hidden="true">
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+  <div class="cloud c4"></div>
+  <div class="cloud c5"></div>
+</div>
+
+<!-- The ruler. Every readout on it is real: the fill tracks scroll position,
+     the percentage is computed from it, the clock ticks. -->
+<div class="ruler">
+  <a class="ruler-brand" href="#top">
+    <span class="ruler-mark">AK</span>
+    <span>Arsalan Khadim</span>
+  </a>
+  <div class="ruler-scale"><div class="ruler-fill" id="ruler-fill"></div></div>
+  <div class="ruler-live">
+    <i class="dot dot-ok"></i>
+    <span data-i18n="ruler.live">LIVE</span>
+    <span>·</span>
+    <span id="clock">--:--:--</span>
+  </div>
+  <div class="ruler-pct" id="pct">0%</div>
+</div>
+
+<header class="chrome">
+  <div class="pill pill-status">
+    <i class="dot dot-ok"></i>
+    <span data-i18n="chrome.status">8 repos live · 263 tests green</span>
+  </div>
+
+  <nav class="pill pill-nav" aria-label="Sections">
+    <a href="#work" data-i18n="nav.work">Work</a>
+    <a href="#numbers" data-i18n="nav.numbers">Numbers</a>
+    <a href="#approach" data-i18n="nav.approach">Approach</a>
+    <a class="is-cta" href="#contact" data-i18n="nav.contact">Contact</a>
   </nav>
+
+  <div class="pill pill-actions">
+    <button type="button" class="langbtn" id="lang-btn" data-i18n="nav.lang">DE</button>
+    <button type="button" class="iconbtn" id="theme-btn" aria-label="Switch theme">
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.4M12 19.2v2.4M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.4 12h2.4M19.2 12h2.4M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 1 1 9.4 3.5a6.9 6.9 0 0 0 11.1 11.1z"/></svg>
+    </button>
+    <a class="iconbtn social" href="https://github.com/ArsalanRC" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+    </a>
+    <a class="iconbtn social" href="https://www.linkedin.com/in/muhammad-arsalan-khadim-b87550259/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+    </a>
+  </div>
 </header>
 
 <main id="top">
 
-  <section class="stage">
-    <!-- The 3D scene is progressive enhancement. This grid is the real content
-         and renders instantly; the canvas fades in over it only once three.js
-         and the model have loaded, and never at all without WebGL. -->
-    <div class="fallback" id="fallback" aria-hidden="true">
-      <img src="./assets/cards/chess-board.jpg" alt="">
-      <img src="./assets/cards/patterns-retry.jpg" alt="">
-      <img src="./assets/cards/chess-result.jpg" alt="">
-      <img src="./assets/cards/patterns-atomic.jpg" alt="">
-      <img src="./assets/cards/chess-light.jpg" alt="">
-      <img src="./assets/cards/patterns-idem.jpg" alt="">
+  <!-- ------------------------------------------------------------- hero -- -->
+  <section class="hero wrap">
+    <div class="badge reveal">
+      <b data-i18n="hero.badgeStrong">Eight repositories</b>
+      <span data-i18n="hero.badgeRest">public, tested, running</span>
+      <span class="m">263 ✓</span>
     </div>
-    <canvas id="scene" aria-hidden="true"></canvas>
 
-    <div class="stage-copy">
-      <p class="kicker" data-i18n="hero.kicker">Software architect · Full-stack engineer</p>
-      <h1 class="title">Arsalan Khadim</h1>
-      <p class="lede" data-i18n="hero.lede"></p>
-      <div class="cta">
-        <a class="btn btn-primary" href="https://arsalanrc.github.io/chess-engine/" target="_blank" rel="noopener" data-i18n="hero.playChess">Play my chess engine</a>
-        <a class="btn" href="https://arsalanrc.github.io/integration-patterns/" target="_blank" rel="noopener" data-i18n="hero.seePatterns">See integration-patterns</a>
+    <p class="eyebrow reveal" data-i18n="hero.kicker">Software architect · Full-stack engineer</p>
+
+    <div class="selection reveal">
+      <span class="sel-tag">headline</span>
+      <span class="handle tl"></span><span class="handle tr"></span>
+      <span class="handle bl"></span><span class="handle br"></span>
+      <h1 class="title" data-i18n-html="hero.title">I make systems<br>agree with <span class="accent">each other</span>.</h1>
+    </div>
+
+    <p class="lede reveal" data-i18n="hero.lede"></p>
+
+    <div class="cta reveal">
+      <a class="btn btn-primary" href="https://arsalanrc.github.io/chess-engine/" target="_blank" rel="noopener">
+        <span data-i18n="hero.ctaPlay">Play the chess engine</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn" href="#work" data-i18n="hero.ctaWork">See the work</a>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------------- numbers -- -->
+  <section id="numbers" class="wrap">
+    <p class="eyebrow reveal" data-i18n="numbers.eyebrow">By the numbers</p>
+    <h2 class="reveal" data-i18n="numbers.title">Counted, not estimated</h2>
+    <p class="section-lede reveal" data-i18n="numbers.lede"></p>
+
+    <div class="bento">
+      <div class="card s3 stat reveal">
+        <b>8</b>
+        <span class="label" data-i18n="numbers.repos">Public repositories</span>
+      </div>
+      <div class="card s3 stat reveal">
+        <b>263<sup>✓</sup></b>
+        <span class="label" data-i18n="numbers.tests">Tests passing</span>
+      </div>
+      <div class="card s3 stat reveal">
+        <b>0</b>
+        <span class="label" data-i18n="numbers.deps">Runtime dependencies</span>
+      </div>
+      <div class="card s3 stat reveal">
+        <b>27</b>
+        <span class="label" data-i18n="numbers.prs">Merged pull requests</span>
+      </div>
+
+      <div class="card s7 reveal">
+        <span class="label" data-i18n="numbers.capsLabel">What I actually do</span>
+        <div class="chips">
+          <span class="chip" data-i18n="numbers.cap1">Systems architecture</span>
+          <span class="chip" data-i18n="numbers.cap2">ERP and warehouse integration</span>
+          <span class="chip" data-i18n="numbers.cap3">Distributed correctness</span>
+          <span class="chip" data-i18n="numbers.cap4">Engines and search</span>
+          <span class="chip" data-i18n="numbers.cap5">Developer tooling</span>
+        </div>
+        <p class="lede" data-i18n="numbers.capsBody"></p>
+      </div>
+
+      <div class="card card-ink s5 reveal">
+        <span class="label" data-i18n="numbers.stackLabel">Shipping today</span>
+        <div class="chips">
+          <span class="chip chip-mono">TypeScript</span>
+          <span class="chip chip-mono">Python</span>
+          <span class="chip chip-mono">Java</span>
+          <span class="chip chip-mono">SQL</span>
+          <span class="chip chip-mono">JavaScript</span>
+        </div>
+        <p class="lede" data-i18n="numbers.stackBody"></p>
       </div>
     </div>
   </section>
 
-  <section class="band">
-    <p class="eyebrow" data-i18n="work.eyebrow">Work</p>
-    <h2 data-i18n="work.title">Things you can open right now</h2>
-    <p class="body" data-i18n="work.lede"></p>
+  <!-- ------------------------------------------------------------- work -- -->
+  <section id="work" class="wrap">
+    <p class="eyebrow reveal" data-i18n="work.eyebrow">Work</p>
+    <h2 class="reveal" data-i18n="work.title">Things you can open right now</h2>
+    <p class="section-lede reveal" data-i18n="work.lede"></p>
 
-    <div class="grid">
-      <a class="card" href="https://arsalanrc.github.io/stylo/" target="_blank" rel="noopener">
-        <img src="./assets/cards/stylo-readout.jpg" alt="" loading="lazy">
-        <div class="card-body">
-          <h3>stylo</h3>
+    <div class="work">
+
+      <div class="reveal">
+        <span class="file f-ts"><i></i>features.ts</span>
+        <a class="card" href="https://arsalanrc.github.io/stylo/" target="_blank" rel="noopener">
+          <div class="frame">
+            <div class="frame-bar">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="frame-url">arsalanrc.github.io/stylo</span>
+            </div>
+            <div class="frame-view">
+              <img src="./assets/cards/stylo-readout.jpg" alt="" loading="lazy" width="850" height="475">
+              <span class="frame-note" data-i18n="work.hover">hover to scroll</span>
+            </div>
+          </div>
+          <div class="work-head">
+            <h3>stylo</h3>
+            <span class="year">2026</span>
+          </div>
           <p data-i18n="work.stylo"></p>
-          <span class="meta">TypeScript · 61 tests · 0 dependencies</span>
-        </div>
-      </a>
-      <a class="card" href="https://arsalanrc.github.io/pg-outbox/" target="_blank" rel="noopener">
-        <img src="./assets/cards/outbox-sim.jpg" alt="" loading="lazy">
-        <div class="card-body">
-          <h3>pg-outbox</h3>
+          <div class="chips">
+            <span class="chip chip-mono">TypeScript</span>
+            <span class="chip chip-mono">61 tests</span>
+            <span class="chip chip-mono">0 deps</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="reveal">
+        <span class="file f-java"><i></i>Relay.java</span>
+        <a class="card" href="https://arsalanrc.github.io/pg-outbox/" target="_blank" rel="noopener">
+          <div class="frame">
+            <div class="frame-bar">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="frame-url">arsalanrc.github.io/pg-outbox</span>
+            </div>
+            <div class="frame-view">
+              <img src="./assets/cards/outbox-sim.jpg" alt="" loading="lazy" width="850" height="477">
+              <span class="frame-note" data-i18n="work.hover">hover to scroll</span>
+            </div>
+          </div>
+          <div class="work-head">
+            <h3>pg-outbox</h3>
+            <span class="year">2026</span>
+          </div>
           <p data-i18n="work.outbox"></p>
-          <span class="meta">Java · Postgres · 41 tests · 0 dependencies</span>
-        </div>
-      </a>
-      <a class="card" href="https://arsalanrc.github.io/recon/" target="_blank" rel="noopener">
-        <img src="./assets/cards/recon-run.jpg" alt="" loading="lazy">
-        <div class="card-body">
-          <h3>recon</h3>
+          <div class="chips">
+            <span class="chip chip-mono">Java</span>
+            <span class="chip chip-mono">Postgres</span>
+            <span class="chip chip-mono">41 tests</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="reveal">
+        <span class="file f-py"><i></i>postgres.py</span>
+        <a class="card" href="https://arsalanrc.github.io/recon/" target="_blank" rel="noopener">
+          <div class="frame">
+            <div class="frame-bar">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="frame-url">arsalanrc.github.io/recon</span>
+            </div>
+            <div class="frame-view">
+              <img src="./assets/cards/recon-run.jpg" alt="" loading="lazy" width="850" height="475">
+              <span class="frame-note" data-i18n="work.hover">hover to scroll</span>
+            </div>
+          </div>
+          <div class="work-head">
+            <h3>recon</h3>
+            <span class="year">2026</span>
+          </div>
           <p data-i18n="work.recon"></p>
-          <span class="meta">Python · 86 tests · 0 dependencies</span>
-        </div>
-      </a>
-      <a class="card" href="https://arsalanrc.github.io/chess-engine/" target="_blank" rel="noopener">
-        <img src="./assets/cards/chess-board.jpg" alt="" loading="lazy">
-        <div class="card-body">
-          <h3>chess-engine</h3>
+          <div class="chips">
+            <span class="chip chip-mono">Python</span>
+            <span class="chip chip-mono">86 tests</span>
+            <span class="chip chip-mono">0 deps</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="reveal">
+        <span class="file f-ts"><i></i>search.ts</span>
+        <a class="card" href="https://arsalanrc.github.io/chess-engine/" target="_blank" rel="noopener">
+          <div class="frame">
+            <div class="frame-bar">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="frame-url">arsalanrc.github.io/chess-engine</span>
+            </div>
+            <div class="frame-view">
+              <img src="./assets/cards/chess-board.jpg" alt="" loading="lazy" width="850" height="448">
+              <span class="frame-note" data-i18n="work.hover">hover to scroll</span>
+            </div>
+          </div>
+          <div class="work-head">
+            <h3>chess-engine</h3>
+            <span class="year">2026</span>
+          </div>
           <p data-i18n="work.chess"></p>
-          <span class="meta">TypeScript · 47 tests · 0 dependencies</span>
-        </div>
-      </a>
-      <a class="card" href="https://arsalanrc.github.io/integration-patterns/" target="_blank" rel="noopener">
-        <img src="./assets/cards/patterns-retry.jpg" alt="" loading="lazy">
-        <div class="card-body">
-          <h3>integration-patterns</h3>
+          <div class="chips">
+            <span class="chip chip-mono">TypeScript</span>
+            <span class="chip chip-mono">47 tests</span>
+            <span class="chip chip-mono">playable</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="reveal">
+        <span class="file f-ts"><i></i>retry.ts</span>
+        <a class="card" href="https://arsalanrc.github.io/integration-patterns/" target="_blank" rel="noopener">
+          <div class="frame">
+            <div class="frame-bar">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="frame-url">arsalanrc.github.io/integration-patterns</span>
+            </div>
+            <div class="frame-view">
+              <img src="./assets/cards/patterns-retry.jpg" alt="" loading="lazy" width="850" height="474">
+              <span class="frame-note" data-i18n="work.hover">hover to scroll</span>
+            </div>
+          </div>
+          <div class="work-head">
+            <h3>integration-patterns</h3>
+            <span class="year">2026</span>
+          </div>
           <p data-i18n="work.patterns"></p>
-          <span class="meta">TypeScript · Postgres · 28 tests</span>
-        </div>
-      </a>
-      <div class="card card-static">
-        <div class="card-body">
-          <h3>Game Arena</h3>
+          <div class="chips">
+            <span class="chip chip-mono">TypeScript</span>
+            <span class="chip chip-mono">Postgres</span>
+            <span class="chip chip-mono">28 tests</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="reveal">
+        <span class="file f-js"><i></i>arena.tsx</span>
+        <div class="card">
+          <div class="frame">
+            <div class="frame-bar">
+              <span class="lights"><i></i><i></i><i></i></span>
+              <span class="frame-url" data-i18n="work.private">private repository</span>
+            </div>
+            <div class="frame-view">
+              <img src="./assets/cards/arena-lobby.jpg" alt="" loading="lazy" width="900" height="503">
+            </div>
+          </div>
+          <div class="work-head">
+            <h3>Game Arena</h3>
+            <span class="year">2026</span>
+          </div>
           <p data-i18n="work.arena"></p>
-          <span class="meta">Next.js 14 · Supabase · 940 tests · 23 languages</span>
+          <div class="chips">
+            <span class="chip chip-mono">Next.js 14</span>
+            <span class="chip chip-mono">Supabase</span>
+            <span class="chip chip-mono">940 tests</span>
+          </div>
         </div>
       </div>
+
     </div>
   </section>
 
-  <section class="band">
-    <p class="eyebrow" data-i18n="how.eyebrow">Approach</p>
-    <h2 data-i18n="how.title">How I think about building</h2>
-    <div class="principles">
-      <div><h3 data-i18n="how.p1t"></h3><p data-i18n="how.p1"></p></div>
-      <div><h3 data-i18n="how.p2t"></h3><p data-i18n="how.p2"></p></div>
-      <div><h3 data-i18n="how.p3t"></h3><p data-i18n="how.p3"></p></div>
-      <div><h3 data-i18n="how.p4t"></h3><p data-i18n="how.p4"></p></div>
-    </div>
-  </section>
+  <!-- --------------------------------------------------------- approach -- -->
+  <section id="approach" class="wrap">
+    <p class="eyebrow reveal" data-i18n="how.eyebrow">Approach</p>
+    <h2 class="reveal" data-i18n="how.title">How I think about building</h2>
 
-  <section class="band">
-    <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
-    <h2 data-i18n="contact.title">Get in touch</h2>
-    <p class="body" data-i18n="contact.body"></p>
-    <div class="cta">
-      <a class="btn btn-primary" href="https://www.linkedin.com/in/muhammad-arsalan-khadim-b87550259/" target="_blank" rel="noopener">LinkedIn</a>
+    <div class="bento">
+      <div class="card s6 reveal">
+        <span class="label">01</span>
+        <h3 data-i18n="how.p1t"></h3>
+        <p class="lede" data-i18n="how.p1"></p>
+      </div>
+      <div class="card s6 reveal">
+        <span class="label">02</span>
+        <h3 data-i18n="how.p2t"></h3>
+        <p class="lede" data-i18n="how.p2"></p>
+      </div>
+      <div class="card s6 reveal">
+        <span class="label">03</span>
+        <h3 data-i18n="how.p3t"></h3>
+        <p class="lede" data-i18n="how.p3"></p>
+      </div>
+      <div class="card s6 reveal">
+        <span class="label">04</span>
+        <h3 data-i18n="how.p4t"></h3>
+        <p class="lede" data-i18n="how.p4"></p>
+      </div>
+      <div class="note s12 reveal" data-i18n="how.note"></div>
     </div>
   </section>
 
 </main>
 
-<footer class="foot">
-  <span>Arsalan Khadim</span><span class="sep">·</span>
-  <span data-i18n="foot.built">Built by hand, no template</span><span class="sep">·</span>
-  <a href="https://github.com/ArsalanRC/ArsalanRC.github.io" target="_blank" rel="noopener" data-i18n="foot.source">Source</a>
+<!-- ------------------------------------------------------------- footer -- -->
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <p class="eyebrow" data-i18n="contact.eyebrow">Get in touch</p>
+        <a class="foot-cta" href="https://www.linkedin.com/in/muhammad-arsalan-khadim-b87550259/" target="_blank" rel="noopener">
+          <span>linkedin.com/in/muhammad-arsalan-khadim</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+        <p class="label" data-i18n="contact.note"></p>
+      </div>
+
+      <div class="foot-links">
+        <div>
+          <h4 data-i18n="foot.workHead">Work</h4>
+          <a href="https://arsalanrc.github.io/stylo/" target="_blank" rel="noopener">stylo</a>
+          <a href="https://arsalanrc.github.io/pg-outbox/" target="_blank" rel="noopener">pg-outbox</a>
+          <a href="https://arsalanrc.github.io/recon/" target="_blank" rel="noopener">recon</a>
+          <a href="https://arsalanrc.github.io/chess-engine/" target="_blank" rel="noopener">chess-engine</a>
+          <a href="https://arsalanrc.github.io/integration-patterns/" target="_blank" rel="noopener">integration-patterns</a>
+        </div>
+        <div>
+          <h4 data-i18n="foot.elseHead">Elsewhere</h4>
+          <a href="https://github.com/ArsalanRC" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/muhammad-arsalan-khadim-b87550259/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/ArsalanRC/ArsalanRC.github.io" target="_blank" rel="noopener" data-i18n="foot.source">Source of this page</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="foot-mark" aria-hidden="true"><span>a</span>rsalan khadim</p>
+
+    <div class="foot-bar">
+      <span><i class="dot dot-ok"></i> <span data-i18n="foot.built">Built by hand, no template</span></span>
+      <span id="foot-clock">--:--</span>
+      <span data-i18n="foot.legal">© 2026 Arsalan Khadim</span>
+    </div>
+  </div>
 </footer>
 
-<script type="importmap">
-{ "imports": { "three": "./vendor/three.module.js", "three/addons/": "./vendor/" } }
-</script>
+<button class="totop" id="totop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="cursor" id="cursor" aria-hidden="true">
+  <svg viewBox="0 0 16 16"><path d="M1 1l4.9 13.2 2.2-5.1 5.1-2.2z"/></svg>
+  <b data-i18n="cursor.you">you</b>
+</div>
+
 <script type="module" src="./app.js"></script>
 </body>
 </html>
