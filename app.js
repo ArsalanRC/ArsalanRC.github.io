@@ -82,18 +82,18 @@ const STRINGS = {
     "how.title": "How I think about building",
     "how.p1t": "The type system is the comment that cannot go stale",
     "how.p1":
-      "If a rule can be made impossible to break, make it impossible. Writing it down and hoping is the weaker version of the same idea. One library here takes a live connection and never a pool, purely so that the dangerous shape cannot be written at all.",
+      "A comment that says \"do not pass a connection pool here\" is a comment somebody will skip. So recon's Postgres source accepts one open connection and nothing else. Its cursor lives on the server, on the connection that opened it, and a pool hands out a different connection every call. The type turns that mistake into code you cannot write.",
     "how.p2t": "Test the thing that only breaks under load",
     "how.p2":
-      "The claim query in pg-outbox publishes, retries and dead-letters flawlessly as long as one relay is running. It only duplicates under concurrency, which is exactly why the untested version ships happily, sits in production for weeks, and then breaks at three in the morning on somebody else's shift.",
+      "Run pg-outbox with a single relay and it looks perfect: events publish, retries back off, failures land in the dead-letter table. Start a second relay and both can claim the same row. The bug needs concurrency to show up, which is why an untested version ships without complaint, runs for weeks, and then wakes somebody up at three in the morning.",
     "how.p3t": "A plausible number is worse than a crash",
     "how.p3":
-      "I found two bugs in stylo by measuring a corpus and looking hard at the handful of numbers that made no sense, not by writing a test that failed. Neither of them crashed. Both returned numbers you would happily believe, and that is the kind of failure that gets all the way through review.",
+      "Two bugs in stylo turned up because I measured a corpus and stared at the few numbers that made no sense. No test caught them. Neither one crashed. Both returned figures you would read straight past, and that is the kind of failure that survives review.",
     "how.p4t": "Say what it cannot do, and say it first",
     "how.p4":
-      "Every README here opens with the limitations instead of burying them at the bottom. Being straight about the edges is what makes the middle believable, and it is the part most projects leave out.",
+      "Every README here opens with what the project cannot do instead of hiding it near the bottom. Being clear about the limits is what makes the rest of it worth believing, and it is usually the part that gets left out.",
     "how.note":
-      "None of the above is a principle I read somewhere. Each one is written down because getting it wrong cost me something first, and the cost is in the repository history if you want to check.",
+      "None of this came out of a book. Each one is here because getting it wrong cost me something first, and the cost is in the commit history if you want to look.",
 
     "contact.eyebrow": "Get in touch",
     "contact.note": "LinkedIn is the way to reach me. No email address published anywhere, on purpose.",
@@ -172,18 +172,18 @@ const STRINGS = {
     "how.title": "Wie ich an Bauen herangehe",
     "how.p1t": "Das Typsystem ist der Kommentar, der nicht veralten kann",
     "how.p1":
-      "Lässt sich eine Regel unmöglich machen, dann mach sie unmöglich. Aufschreiben und hoffen ist die schwächere Fassung derselben Idee. Eine Bibliothek hier nimmt bewusst eine offene Verbindung und niemals einen Pool, einzig damit sich die gefährliche Form gar nicht erst schreiben lässt.",
+      "Ein Kommentar mit „hier bitte keinen Pool übergeben“ ist ein Kommentar, den jemand überliest. Die Postgres-Quelle in recon nimmt deshalb genau eine offene Verbindung und sonst nichts. Ihr Cursor liegt auf dem Server, auf der Verbindung, die ihn geöffnet hat, und ein Pool gibt bei jedem Aufruf eine andere heraus. Der Typ macht aus dem Fehler Code, den man nicht schreiben kann.",
     "how.p2t": "Prüfen, was erst unter Last kaputtgeht",
     "how.p2":
-      "Die Claim-Query in pg-outbox veröffentlicht, wiederholt und schreibt Dead Letters tadellos, solange ein einzelnes Relay läuft. Sie dupliziert erst unter Nebenläufigkeit. Genau deshalb geht die ungetestete Fassung anstandslos in Betrieb, läuft dort wochenlang unauffällig mit und bricht dann nachts um drei in der Schicht von jemand anderem.",
+      "Mit einem einzelnen Relay sieht pg-outbox tadellos aus: Events gehen raus, Retries warten gestaffelt, Fehlschläge landen in der Dead-Letter-Tabelle. Startet man ein zweites Relay, können beide dieselbe Zeile beanspruchen. Der Fehler braucht Nebenläufigkeit, um sichtbar zu werden. Genau deshalb geht eine ungetestete Fassung klaglos in Betrieb, läuft wochenlang mit und holt dann nachts um drei jemanden aus dem Bett.",
     "how.p3t": "Eine plausible Zahl ist schlimmer als ein Absturz",
     "how.p3":
-      "Zwei Fehler in stylo fand ich, indem ich ein Korpus vermessen und mir die paar Werte genau angesehen habe, die keinen Sinn ergaben. Kein Test hat sie gefunden. Keiner der beiden stürzte ab, beide lieferten Zahlen, die man bereitwillig glaubt: die Sorte Fehler, die durch jedes Review kommt.",
+      "Zwei Fehler in stylo kamen heraus, weil ich ein Korpus vermessen und auf die paar Werte gestarrt habe, die keinen Sinn ergaben. Kein Test hat sie gefunden. Keiner der beiden stürzte ab. Beide lieferten Zahlen, über die man einfach hinwegliest, und das ist die Sorte Fehler, die ein Review übersteht.",
     "how.p4t": "Sagen, was nicht geht, und zwar zuerst",
     "how.p4":
-      "Jede README hier beginnt mit den Grenzen, statt sie ganz unten zu verstecken. Ehrlich über die Ränder zu sein macht die Mitte glaubwürdig, und genau diesen Teil lassen die meisten Projekte weg.",
+      "Jede README hier beginnt damit, was das Projekt nicht kann, statt es weit unten zu verstecken. Klarheit über die Grenzen ist das, was den Rest glaubwürdig macht, und genau dieser Teil fehlt meistens.",
     "how.note":
-      "Nichts davon ist ein Grundsatz, den ich irgendwo gelesen habe. Jeder steht hier, weil es mich vorher etwas gekostet hat, und die Kosten stehen in der Repo-Historie, falls jemand nachsehen will.",
+      "Nichts davon stammt aus einem Buch. Jeder Punkt steht hier, weil es mich vorher etwas gekostet hat, und die Kosten stehen in der Commit-Historie, falls jemand nachsehen will.",
 
     "contact.eyebrow": "Kontakt",
     "contact.note": "LinkedIn ist der Weg. Keine E-Mail-Adresse veröffentlicht, mit Absicht.",
