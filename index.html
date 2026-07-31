@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#4E9BD9" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="./style.css" />
 <script>
   /* Before first paint: no theme flash, no language flash. Inline on purpose,
@@ -97,7 +97,7 @@
       <span class="sel-tag">headline</span>
       <span class="handle tl"></span><span class="handle tr"></span>
       <span class="handle bl"></span><span class="handle br"></span>
-      <h1 class="title" data-i18n-html="hero.title">I make systems<br>agree with <span class="accent">each other</span>.</h1>
+      <h1 class="title" data-i18n-html="hero.title">I build whole systems.<br>Interface to <span class="accent">integration</span>.</h1>
     </div>
 
     <p class="lede reveal" data-i18n="hero.lede"></p>
@@ -137,6 +137,7 @@
 
       <div class="card s7 reveal">
         <span class="label" data-i18n="numbers.capsLabel">What I actually do</span>
+        <p class="card-lead" data-i18n-html="numbers.capsLead">Pixels to <span class="accent">pipelines</span>.</p>
         <div class="chips">
           <span class="chip" data-i18n="numbers.cap1">Systems architecture</span>
           <span class="chip" data-i18n="numbers.cap2">ERP and warehouse integration</span>
@@ -366,8 +367,11 @@
       <div>
         <p class="eyebrow" data-i18n="contact.eyebrow">Get in touch</p>
         <a class="foot-cta" href="https://www.linkedin.com/in/muhammad-arsalan-khadim-b87550259/" target="_blank" rel="noopener">
+          <span class="foot-brand" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          </span>
           <span>linkedin.com/in/muhammad-arsalan-khadim</span>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          <svg class="foot-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
         </a>
         <p class="label" data-i18n="contact.note"></p>
       </div>
@@ -397,6 +401,13 @@
       <span id="foot-clock">--:--</span>
       <span data-i18n="foot.legal">© 2026 Arsalan Khadim</span>
     </div>
+
+    <!-- Attribution. The visual direction of this page is adapted from
+         ohhmydesign.com, so it says so, in the open, on the page itself. -->
+    <p class="foot-credit">
+      <span data-i18n="foot.creditPre">Visual direction adapted from</span>
+      <a href="https://www.ohhmydesign.com/" target="_blank" rel="noopener">ohhmydesign.com</a><span data-i18n="foot.creditPost">. Built from scratch, no code or assets taken.</span>
+    </p>
   </div>
 </footer>
 

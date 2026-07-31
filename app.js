@@ -32,28 +32,29 @@ const STRINGS = {
     "hero.badgeStrong": "Eight repositories",
     "hero.badgeRest": "public, tested, running",
     "hero.kicker": "Software architect · Full-stack engineer",
-    "hero.title": 'I make systems<br>agree with <span class="accent">each other</span>.',
+    "hero.title": 'I build whole systems.<br>Interface to <span class="accent">integration</span>.',
     "hero.lede":
-      "Warehouse systems, ERP integrations and logistics APIs by day. Engines, libraries and things you can click the rest of the time. Everything below runs in a browser, and every one of them tells you what it will not do.",
+      "Warehouse systems, ERP integrations and logistics APIs by day. Engines, libraries and things you can click the rest of the time. The projects below run in your browser, and every one of them is upfront about what it cannot do, which is the part most portfolios quietly skip.",
     "hero.ctaPlay": "Play the chess engine",
     "hero.ctaWork": "See the work",
 
     "numbers.eyebrow": "By the numbers",
     "numbers.title": "Counted, not estimated",
     "numbers.lede":
-      "Read off the API rather than remembered, because a stale number on a portfolio reads as neglect rather than as a snapshot.",
+      "Every number below is read off the API, not recalled from memory. A stale figure on a portfolio reads as neglect rather than as a snapshot.",
     "numbers.repos": "Public repositories",
     "numbers.tests": "Tests passing",
     "numbers.deps": "Runtime dependencies",
     "numbers.prs": "Merged pull requests",
     "numbers.capsLabel": "What I actually do",
+    "numbers.capsLead": 'Pixels to <span class="accent">pipelines</span>.',
     "numbers.cap1": "Systems architecture",
     "numbers.cap2": "ERP and warehouse integration",
     "numbers.cap3": "Distributed correctness",
     "numbers.cap4": "Engines and search",
     "numbers.cap5": "Developer tooling",
     "numbers.capsBody":
-      "The day job is making systems that were never designed to talk to each other exchange data reliably, every day, without anyone noticing. The repositories are where the same problems get solved from scratch and written down.",
+      "My day job is connecting systems that were never built to talk to each other, reliably, every day, without anyone noticing. The repositories are where I solve the same problems from scratch, with nobody's deadline pressing on the design, and write down what I learned while it is still fresh.",
     "numbers.stackLabel": "Shipping today",
     "numbers.stackBody":
       "A language appears here once something public is written in it. Rust, C++, C and C# are on the plan and are deliberately not on this list yet.",
@@ -65,7 +66,7 @@ const STRINGS = {
     "work.hover": "hover to scroll",
     "work.private": "private repository",
     "work.stylo":
-      "Nineteen stylometric features of a text, each against the range a corpus of human academic writing actually occupies. It never says who wrote something, and the limitations sit above the numbers rather than below them.",
+      "It measures nineteen features of a text and shows each one against the range that real human academic writing occupies. It never tells you who wrote anything; that is not a question nineteen numbers can answer, and the limits sit above the results rather than in a footnote below them.",
     "work.outbox":
       "Commit a database change and publish an event without them coming apart. Two systems cannot commit together, so the fix is not a better ordering of the two calls: it is refusing to have two commits.",
     "work.recon":
@@ -81,27 +82,29 @@ const STRINGS = {
     "how.title": "How I think about building",
     "how.p1t": "The type system is the comment that cannot go stale",
     "how.p1":
-      "Where a rule can be made impossible to break, it should be, instead of written down and hoped for. One library takes a live connection and never a pool, purely so the dangerous version cannot be written at all.",
+      "If a rule can be made impossible to break, make it impossible. Writing it down and hoping is the weaker version of the same idea. One library here takes a live connection and never a pool, purely so that the dangerous shape cannot be written at all.",
     "how.p2t": "Test the thing that only breaks under load",
     "how.p2":
-      "The claim query in pg-outbox publishes, retries and dead-letters flawlessly with a single relay. It duplicates only under concurrency, which means the untested version ships and then fails at somebody else's three in the morning.",
+      "The claim query in pg-outbox publishes, retries and dead-letters flawlessly as long as one relay is running. It only duplicates under concurrency, which is exactly why the untested version ships happily, sits in production for weeks, and then breaks at three in the morning on somebody else's shift.",
     "how.p3t": "A plausible number is worse than a crash",
     "how.p3":
-      "Two bugs in stylo were found by measuring a corpus and looking at the outliers, not by a test. Neither threw. They returned numbers you would believe, which is the failure that survives review.",
-    "how.p4t": "Say what it cannot do, prominently",
+      "I found two bugs in stylo by measuring a corpus and looking hard at the handful of numbers that made no sense, not by writing a test that failed. Neither of them crashed. Both returned numbers you would happily believe, and that is the kind of failure that gets all the way through review.",
+    "how.p4t": "Say what it cannot do, and say it first",
     "how.p4":
-      "Every README here leads with the limitations rather than burying them. Being straight about the edges is what makes the middle credible, and it is the part most projects skip.",
+      "Every README here opens with the limitations instead of burying them at the bottom. Being straight about the edges is what makes the middle believable, and it is the part most projects leave out.",
     "how.note":
       "None of the above is a principle I read somewhere. Each one is written down because getting it wrong cost me something first, and the cost is in the repository history if you want to check.",
 
     "contact.eyebrow": "Get in touch",
-    "contact.note": "LinkedIn is the contact route. No email published anywhere, on purpose.",
+    "contact.note": "LinkedIn is the way to reach me. No email address published anywhere, on purpose.",
 
     "foot.workHead": "Work",
     "foot.elseHead": "Elsewhere",
     "foot.source": "Source of this page",
     "foot.built": "Built by hand, no template",
     "foot.legal": "© 2026 Arsalan Khadim",
+    "foot.creditPre": "Visual direction adapted from",
+    "foot.creditPost": ". Built from scratch, no code or assets taken.",
   },
 
   de: {
@@ -119,28 +122,29 @@ const STRINGS = {
     "hero.badgeStrong": "Acht Repositories",
     "hero.badgeRest": "öffentlich, getestet, im Betrieb",
     "hero.kicker": "Softwarearchitekt · Full-Stack-Engineer",
-    "hero.title": 'Ich bringe Systeme<br>dazu, sich <span class="accent">zu einigen</span>.',
+    "hero.title": 'Ich baue ganze Systeme.<br>Vom Interface zur <span class="accent">Integration</span>.',
     "hero.lede":
-      "Tagsüber Lagerverwaltung, ERP-Integrationen und Logistik-APIs. Den Rest der Zeit Engines, Bibliotheken und Dinge, die man anklicken kann. Alles hier läuft im Browser, und jedes davon sagt, was es nicht kann.",
+      "Tagsüber Lagerverwaltung, ERP-Integrationen und Logistik-APIs. Den Rest der Zeit Engines, Bibliotheken und Dinge zum Anklicken. Die Projekte hier unten laufen im Browser, und jedes einzelne sagt von sich aus, wo seine Grenzen liegen: genau der Teil, den die meisten Portfolios stillschweigend auslassen.",
     "hero.ctaPlay": "Schach-Engine spielen",
     "hero.ctaWork": "Projekte ansehen",
 
     "numbers.eyebrow": "In Zahlen",
     "numbers.title": "Gezählt, nicht geschätzt",
     "numbers.lede":
-      "Aus der API gelesen statt aus dem Gedächtnis, denn eine veraltete Zahl in einem Portfolio wirkt nachlässig und nicht wie eine Momentaufnahme.",
+      "Jede Zahl hier unten ist aus der API gelesen, nicht aus dem Gedächtnis. Eine veraltete Angabe in einem Portfolio wirkt nachlässig und nicht wie eine Momentaufnahme.",
     "numbers.repos": "Öffentliche Repositories",
     "numbers.tests": "Tests grün",
     "numbers.deps": "Laufzeit-Abhängigkeiten",
     "numbers.prs": "Gemergte Pull Requests",
     "numbers.capsLabel": "Was ich tatsächlich mache",
+    "numbers.capsLead": 'Von Pixeln bis zu <span class="accent">Pipelines</span>.',
     "numbers.cap1": "Systemarchitektur",
     "numbers.cap2": "ERP- und Lageranbindung",
     "numbers.cap3": "Verteilte Korrektheit",
     "numbers.cap4": "Engines und Suche",
     "numbers.cap5": "Entwicklerwerkzeuge",
     "numbers.capsBody":
-      "Im Beruf geht es darum, Systeme, die nie füreinander gedacht waren, jeden Tag zuverlässig Daten austauschen zu lassen, ohne dass es jemandem auffällt. In den Repositories werden dieselben Probleme von Grund auf gelöst und aufgeschrieben.",
+      "Im Beruf verbinde ich Systeme, die nie füreinander gedacht waren. Zuverlässig, jeden Tag, ohne dass es jemandem auffällt. In den Repositories löse ich dieselben Aufgaben noch einmal von Grund auf, ohne fremden Abgabetermin im Nacken, und schreibe die Erkenntnisse auf, solange sie frisch sind.",
     "numbers.stackLabel": "Aktuell im Einsatz",
     "numbers.stackBody":
       "Eine Sprache steht hier, sobald etwas Öffentliches darin geschrieben ist. Rust, C++, C und C# sind geplant und stehen bewusst noch nicht dabei.",
@@ -152,7 +156,7 @@ const STRINGS = {
     "work.hover": "zum Scrollen hovern",
     "work.private": "privates Repository",
     "work.stylo":
-      "Neunzehn stylometrische Merkmale eines Textes, jedes gegen den Bereich gestellt, den ein Korpus menschlicher akademischer Prosa tatsächlich einnimmt. Wer etwas geschrieben hat, sagt es nie, und die Grenzen stehen über den Zahlen statt darunter.",
+      "Neunzehn stylometrische Merkmale eines Textes, jedes gegen den Bereich gestellt, den echte menschliche Fachprosa tatsächlich einnimmt. Wer den Text verfasst hat, sagt es nie; das ist keine Frage, die neunzehn Zahlen beantworten können, und die Einschränkungen stehen über dem Ergebnis statt in einer Fußnote darunter.",
     "work.outbox":
       "Eine Datenbankänderung committen und ein Event veröffentlichen, ohne dass beides auseinanderfällt. Zwei Systeme können nicht gemeinsam committen, also ist die Lösung keine bessere Reihenfolge der Aufrufe, sondern sich zu weigern, zwei Commits zu haben.",
     "work.recon":
@@ -168,16 +172,16 @@ const STRINGS = {
     "how.title": "Wie ich an Bauen herangehe",
     "how.p1t": "Das Typsystem ist der Kommentar, der nicht veralten kann",
     "how.p1":
-      "Wo sich eine Regel unmöglich machen lässt, sollte sie unmöglich sein, statt aufgeschrieben und erhofft. Eine Bibliothek nimmt bewusst eine offene Verbindung und niemals einen Pool, damit sich die gefährliche Variante gar nicht schreiben lässt.",
+      "Lässt sich eine Regel unmöglich machen, dann mach sie unmöglich. Aufschreiben und hoffen ist die schwächere Fassung derselben Idee. Eine Bibliothek hier nimmt bewusst eine offene Verbindung und niemals einen Pool, einzig damit sich die gefährliche Form gar nicht erst schreiben lässt.",
     "how.p2t": "Prüfen, was erst unter Last kaputtgeht",
     "how.p2":
-      "Die Claim-Query in pg-outbox veröffentlicht, wiederholt und schreibt Dead Letters tadellos, solange ein einzelnes Relay läuft. Sie dupliziert erst unter Nebenläufigkeit, und deshalb geht die ungetestete Fassung in Betrieb und scheitert nachts um drei bei jemand anderem.",
+      "Die Claim-Query in pg-outbox veröffentlicht, wiederholt und schreibt Dead Letters tadellos, solange ein einzelnes Relay läuft. Sie dupliziert erst unter Nebenläufigkeit. Genau deshalb geht die ungetestete Fassung anstandslos in Betrieb, läuft dort wochenlang unauffällig mit und bricht dann nachts um drei in der Schicht von jemand anderem.",
     "how.p3t": "Eine plausible Zahl ist schlimmer als ein Absturz",
     "how.p3":
-      "Zwei Fehler in stylo kamen dadurch ans Licht, dass ein Korpus vermessen und die Ausreißer angesehen wurden, nicht durch einen Test. Keiner stürzte ab. Sie lieferten Zahlen, die man glaubt, und das ist der Fehler, der ein Review übersteht.",
-    "how.p4t": "Deutlich sagen, was nicht geht",
+      "Zwei Fehler in stylo fand ich, indem ich ein Korpus vermessen und mir die paar Werte genau angesehen habe, die keinen Sinn ergaben. Kein Test hat sie gefunden. Keiner der beiden stürzte ab, beide lieferten Zahlen, die man bereitwillig glaubt: die Sorte Fehler, die durch jedes Review kommt.",
+    "how.p4t": "Sagen, was nicht geht, und zwar zuerst",
     "how.p4":
-      "Jede README hier beginnt mit den Grenzen, statt sie hinten zu verstecken. Ehrlich über die Ränder zu sein macht die Mitte glaubwürdig, und genau diesen Teil lassen die meisten Projekte weg.",
+      "Jede README hier beginnt mit den Grenzen, statt sie ganz unten zu verstecken. Ehrlich über die Ränder zu sein macht die Mitte glaubwürdig, und genau diesen Teil lassen die meisten Projekte weg.",
     "how.note":
       "Nichts davon ist ein Grundsatz, den ich irgendwo gelesen habe. Jeder steht hier, weil es mich vorher etwas gekostet hat, und die Kosten stehen in der Repo-Historie, falls jemand nachsehen will.",
 
@@ -189,6 +193,8 @@ const STRINGS = {
     "foot.source": "Quelltext dieser Seite",
     "foot.built": "Von Hand gebaut, keine Vorlage",
     "foot.legal": "© 2026 Arsalan Khadim",
+    "foot.creditPre": "Gestalterische Richtung übernommen von",
+    "foot.creditPost": ". Von Grund auf gebaut, kein Code und keine Assets übernommen.",
   },
 };
 

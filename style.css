@@ -46,7 +46,11 @@
 
   --mono:    "Space Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --sans:    "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --display: "Bricolage Grotesque", var(--sans);
+  /* Archivo, run slightly wide on the width axis. A signage grotesque rather
+     than an editorial one: it reads as measured and built rather than as
+     styled, which is the right register for an engineer's page. Variable, so
+     the width comes free rather than as a second file. */
+  --display: "Archivo", var(--sans);
 
   --r-card: 18px;
   --gutter: clamp(1rem, 4vw, 2.75rem);
@@ -384,7 +388,13 @@ section { padding-block: clamp(3rem, 8vw, 6rem); }
   color: var(--accent);
 }
 
-h1, h2, h3, h4 { font-family: var(--display); font-weight: 800; letter-spacing: -.03em; margin: 0; }
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-variation-settings: "wdth" 112;
+  letter-spacing: -.025em;
+  margin: 0;
+}
 
 h2 { font-size: clamp(2rem, 5.2vw, 3.4rem); line-height: 1; margin-bottom: .9rem; }
 h3 { font-size: 1.16rem; line-height: 1.2; letter-spacing: -.02em; }
@@ -461,6 +471,15 @@ h3 { font-size: 1.16rem; line-height: 1.2; letter-spacing: -.02em; }
 .title { font-size: clamp(2.5rem, 8.2vw, 6rem); line-height: .92; }
 .title .accent { color: var(--accent); }
 
+/* German sets wider than English at the same size, because German compounds
+   are longer and there is no way around that. Measured on this headline:
+   the longest English line needs 1203px against 1248px available, the German
+   equivalent needs 1513px, so it has to come down by about a sixth or it
+   wraps to four lines and swamps the hero. A language-specific display size
+   is the normal fix and is cheaper than writing shorter German that says
+   less. */
+:root[lang="de"] .title { font-size: clamp(2.1rem, 6.4vw, 4.55rem); }
+
 .cta { display: flex; flex-wrap: wrap; gap: .7rem; justify-content: center; margin-top: 1.9rem; }
 
 .btn {
@@ -508,6 +527,18 @@ a.card:hover { transform: translateY(-2px); box-shadow: var(--lift-2); }
 }
 
 .card > .label:first-child { display: block; margin-bottom: 1rem; }
+
+/* A display-size line inside a card, for the one statement that is worth
+   saying loudly without being the page headline. */
+.card-lead {
+  margin: -.35rem 0 1.1rem;
+  font: 800 clamp(1.5rem, 2.6vw, 2.05rem)/1.05 var(--display);
+  font-variation-settings: "wdth" 108;
+  letter-spacing: -.025em;
+  color: var(--ink);
+}
+
+.card-lead .accent { color: var(--accent); }
 .label-tr { position: absolute; top: 1.35rem; right: 1.4rem; }
 
 /* One inverted card per screen, for rhythm.
@@ -760,8 +791,34 @@ a.card:hover .frame-note { opacity: 1; }
   word-break: break-word;
 }
 
-.foot-cta svg { width: .62em; height: .62em; stroke: var(--accent); stroke-width: 2.4; fill: none; flex: none; }
+.foot-arrow { width: .62em; height: .62em; stroke: var(--accent); stroke-width: 2.4; fill: none; flex: none; }
 .foot-cta:hover { color: var(--accent); }
+
+/* The LinkedIn mark, in LinkedIn's own blue rather than the page accent. A
+   brand mark recoloured to match a palette stops being recognisable, and being
+   recognisable at a glance is the entire reason it is here. */
+.foot-brand {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: .92em;
+  height: .92em;
+  border-radius: .16em;
+  background: #0A66C2;
+}
+
+.foot-brand svg { width: 74%; height: 74%; fill: #fff; stroke: none; }
+
+/* Attribution. Quiet, but on the page rather than only in the repository. */
+.foot-credit {
+  margin: .75rem 0 0;
+  font: 700 .62rem/1.6 var(--mono);
+  letter-spacing: .06em;
+  color: color-mix(in srgb, currentColor 42%, transparent);
+}
+
+.foot-credit a { color: color-mix(in srgb, currentColor 70%, transparent); }
+.foot-credit a:hover { color: var(--accent); }
 
 .foot-links { display: grid; gap: 1.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .foot-links h4 {
@@ -776,10 +833,17 @@ a.card:hover .frame-note { opacity: 1; }
 
 /* The wordmark, cropped at the baseline. Sized in vw so it always fills the
    width, with the descenders running off the bottom edge on purpose. */
+/* The wordmark fills the column and is cropped at the baseline on purpose, so
+   the descenders run off the bottom edge. It must not crop at the right edge:
+   a missing last letter reads as a bug rather than as a decision. The vw
+   coefficient is tuned to this exact string in Archivo at wdth 100, and it is
+   set narrower than the headings because a run of fourteen characters at 800
+   is already wide enough without the width axis on top. */
 .foot-mark {
   margin: clamp(1.75rem, 5vw, 3.25rem) 0 0;
-  font: 800 clamp(2.6rem, 14.2vw, 13rem)/.8 var(--display);
-  letter-spacing: -.045em;
+  font: 800 clamp(2rem, 11.2vw, 10.5rem)/.82 var(--display);
+  font-variation-settings: "wdth" 100;
+  letter-spacing: -.05em;
   white-space: nowrap;
   color: color-mix(in srgb, currentColor 92%, transparent);
   user-select: none;
