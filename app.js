@@ -27,7 +27,9 @@ const STRINGS = {
     "work.eyebrow": "Work",
     "work.title": "Things you can open right now",
     "work.lede":
-      "No install, no sign-up. The first four run in your browser the moment you click them.",
+      "No install, no sign-up. The first five run in your browser the moment you click them.",
+    "work.stylo":
+      "Nineteen stylometric features of a text, each shown against the range a corpus of human academic writing actually occupies. It never says who wrote something, and the limitations sit above the numbers rather than below them: a large distance is a reason to look at the breakdown, never evidence about a person.",
     "work.outbox":
       "Commit a database change and publish an event without them coming apart. Two systems cannot commit together, so the fix is not a better ordering of the two calls: it is refusing to have two commits. Includes the claim-query bug that delivered sixty events seventy times.",
     "work.recon":
@@ -70,7 +72,9 @@ const STRINGS = {
     "work.eyebrow": "Projekte",
     "work.title": "Direkt ausprobieren",
     "work.lede":
-      "Keine Installation, keine Anmeldung. Die ersten vier laufen sofort im Browser.",
+      "Keine Installation, keine Anmeldung. Die ersten fünf laufen sofort im Browser.",
+    "work.stylo":
+      "Neunzehn stylometrische Merkmale eines Textes, jedes gegen den Bereich gestellt, den ein Korpus menschlicher akademischer Prosa tatsächlich einnimmt. Wer etwas geschrieben hat, sagt es nie, und die Grenzen stehen über den Zahlen statt darunter: ein großer Abstand ist ein Grund, sich die Aufschlüsselung anzusehen, nie ein Beleg über eine Person.",
     "work.outbox":
       "Eine Datenbankänderung committen und ein Event veröffentlichen, ohne dass beides auseinanderfällt. Zwei Systeme können nicht gemeinsam committen, also ist die Lösung keine bessere Reihenfolge der zwei Aufrufe, sondern sich zu weigern, zwei Commits zu haben. Inklusive des Claim-Query-Bugs, der sechzig Events siebzigmal zugestellt hat.",
     "work.recon":
