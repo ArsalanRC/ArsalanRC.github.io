@@ -34,7 +34,7 @@ const STRINGS = {
     "hero.kicker": "Software architect · Full-stack engineer",
     "hero.title": 'I build whole systems.<br>Interface to <span class="accent">integration</span>.',
     "hero.lede":
-      "Warehouse systems, ERP integrations and logistics APIs by day. Engines, libraries and things you can click the rest of the time. The projects below run in your browser, and every one of them is upfront about what it cannot do, which is the part most portfolios quietly skip.",
+      "Warehouse systems, ERP integrations and logistics APIs are the day job. Engines, libraries and playable demos fill the rest. Everything below is public, tested, and opens in a browser, so you can judge it yourself rather than take my word for it.",
     "hero.ctaPlay": "Play the chess engine",
     "hero.ctaWork": "See the work",
 
@@ -124,7 +124,7 @@ const STRINGS = {
     "hero.kicker": "Softwarearchitekt · Full-Stack-Engineer",
     "hero.title": 'Ich baue ganze Systeme.<br>Vom Interface zur <span class="accent">Integration</span>.',
     "hero.lede":
-      "Tagsüber Lagerverwaltung, ERP-Integrationen und Logistik-APIs. Den Rest der Zeit Engines, Bibliotheken und Dinge zum Anklicken. Die Projekte hier unten laufen im Browser, und jedes einzelne sagt von sich aus, wo seine Grenzen liegen: genau der Teil, den die meisten Portfolios stillschweigend auslassen.",
+      "Lagerverwaltung, ERP-Integrationen und Logistik-APIs sind der Beruf. Engines, Bibliotheken und spielbare Demos füllen den Rest. Alles hier unten ist öffentlich, getestet und läuft im Browser, damit du es selbst beurteilen kannst statt mir glauben zu müssen.",
     "hero.ctaPlay": "Schach-Engine spielen",
     "hero.ctaWork": "Projekte ansehen",
 
