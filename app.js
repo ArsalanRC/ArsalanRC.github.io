@@ -34,14 +34,14 @@ const STRINGS = {
     "hero.kicker": "Software architect · Full-stack engineer",
     "hero.title": 'I build whole systems.<br>Interface to <span class="accent">integration</span>.',
     "hero.lede":
-      "Warehouse systems, ERP integrations and logistics APIs are the day job. Engines, libraries and playable demos fill the rest. Everything below is public, tested, and opens in a browser, so you can judge it yourself rather than take my word for it.",
+      "By day I build warehouse systems, ERP integrations and logistics APIs. The rest of the time I write engines, libraries and demos you can play. Everything on this page is public and tested, and most of it opens in a browser, so you can check it yourself instead of taking my word for it.",
     "hero.ctaPlay": "Play the chess engine",
     "hero.ctaWork": "See the work",
 
     "numbers.eyebrow": "By the numbers",
     "numbers.title": "Counted, not estimated",
     "numbers.lede":
-      "Every number below is read off the API, not recalled from memory. A stale figure on a portfolio reads as neglect rather than as a snapshot.",
+      "Every number here is read from the GitHub API rather than typed from memory, and checked again whenever something ships. If one of them is out of date, so is the page.",
     "numbers.repos": "Public repositories",
     "numbers.tests": "Tests passing",
     "numbers.deps": "Runtime dependencies",
@@ -54,29 +54,29 @@ const STRINGS = {
     "numbers.cap4": "Engines and search",
     "numbers.cap5": "Developer tooling",
     "numbers.capsBody":
-      "My day job is connecting systems that were never built to talk to each other, reliably, every day, without anyone noticing. The repositories are where I solve the same problems from scratch, with nobody's deadline pressing on the design, and write down what I learned while it is still fresh.",
+      "My day job is getting systems to talk to each other that were never designed to: reliably, every day, without anyone noticing. The repositories are the same problems solved again from scratch, this time with no deadline bending the design, and written up while I still remember the details.",
     "numbers.stackLabel": "Shipping today",
     "numbers.stackBody":
-      "A language appears here once something public is written in it. Rust, C++, C and C# are on the plan and are deliberately not on this list yet.",
+      "A language only appears here once there is something public written in it. Rust, C++, C and C# are on the plan, which is exactly why they are not on this list yet.",
 
     "work.eyebrow": "Work",
     "work.title": "Things you can open right now",
     "work.lede":
-      "No install, no sign-up. Five of the six run in your browser the moment you click them, and the sixth is private and written up instead.",
+      "No install, no sign-up. Five of the six open in your browser as soon as you click. The sixth is a private repository, so there is a written case study instead.",
     "work.hover": "hover to scroll",
     "work.private": "private repository",
     "work.stylo":
-      "It measures nineteen features of a text and shows each one against the range that real human academic writing occupies. It never tells you who wrote anything; that is not a question nineteen numbers can answer, and the limits sit above the results rather than in a footnote below them.",
+      "It measures nineteen things about a piece of writing and shows each one next to the range you find in real human academic prose. It never guesses who wrote the text. Nineteen numbers cannot answer that, and the page says so at the top rather than in small print at the bottom.",
     "work.outbox":
-      "Commit a database change and publish an event without them coming apart. Two systems cannot commit together, so the fix is not a better ordering of the two calls: it is refusing to have two commits.",
+      "Save a row and publish an event without the two coming apart. A database and a message broker cannot commit together, so reordering the two calls will never fix it. The way out is to have one commit instead of two: the event is written to the same database in the same transaction, and sent afterwards by a separate process.",
     "work.recon":
-      "Two systems disagree about a stock count. Most of those disagreements are formatting rather than fact, so every tolerance is opt-in and named per field. Reads CSV, or streams straight from Postgres.",
+      "Two systems disagree about a stock count. Most of the differences turn out to be formatting rather than real, so you turn tolerances on one field at a time and decide yourself what counts as a match. It reads CSV files, or streams straight from Postgres.",
     "work.chess":
-      "A complete chess engine: full FIDE rules and a minimax bot with alpha-beta pruning. The demo puts the evaluation, legal move count and position hash on screen beside the board.",
+      "A complete chess engine: all the FIDE rules, and a minimax bot with alpha-beta pruning. The demo shows the evaluation, the number of legal moves and the position hash beside the board while you play.",
     "work.patterns":
-      "The logic that keeps system-to-system integrations correct. Idempotency and retry with full jitter, each shipped with the failure it prevents and the way people usually get it wrong.",
+      "The two patterns that stop system-to-system integrations quietly corrupting data: idempotency, and retry with full jitter. Each one is shown next to the failure it prevents, and next to the version people write by mistake.",
     "work.arena":
-      "28 games on one platform under a single architectural rule: game logic never touches React. Every engine is pure TypeScript, which is why 940 tests run without a DOM.",
+      "28 games on one platform, built on a single rule: the game logic never touches React. Every engine is plain TypeScript, which is how 940 tests run without a browser.",
 
     "how.eyebrow": "Approach",
     "how.title": "How I think about building",
@@ -93,10 +93,10 @@ const STRINGS = {
     "how.p4":
       "Every README here opens with what the project cannot do instead of hiding it near the bottom. Being clear about the limits is what makes the rest of it worth believing, and it is usually the part that gets left out.",
     "how.note":
-      "None of this came out of a book. Each one is here because getting it wrong cost me something first, and the cost is in the commit history if you want to look.",
+      "None of these came out of a book. Each one is here because getting it wrong cost me something first, and you can find the cost in the commit history.",
 
     "contact.eyebrow": "Get in touch",
-    "contact.note": "LinkedIn is the way to reach me. No email address published anywhere, on purpose.",
+    "contact.note": "LinkedIn is the best way to reach me. I do not publish an email address anywhere, and that is deliberate.",
 
     "foot.workHead": "Work",
     "foot.elseHead": "Elsewhere",
@@ -124,14 +124,14 @@ const STRINGS = {
     "hero.kicker": "Softwarearchitekt · Full-Stack-Engineer",
     "hero.title": 'Ich baue ganze Systeme.<br>Vom Interface zur <span class="accent">Integration</span>.',
     "hero.lede":
-      "Lagerverwaltung, ERP-Integrationen und Logistik-APIs sind der Beruf. Engines, Bibliotheken und spielbare Demos füllen den Rest. Alles hier unten ist öffentlich, getestet und läuft im Browser, damit du es selbst beurteilen kannst statt mir glauben zu müssen.",
+      "Beruflich baue ich Lagerverwaltung, ERP-Integrationen und Logistik-APIs. In der übrigen Zeit entstehen Engines, Bibliotheken und Demos zum Ausprobieren. Alles auf dieser Seite ist öffentlich und getestet, das meiste läuft direkt im Browser. Du kannst es also selbst prüfen, statt mir glauben zu müssen.",
     "hero.ctaPlay": "Schach-Engine spielen",
     "hero.ctaWork": "Projekte ansehen",
 
     "numbers.eyebrow": "In Zahlen",
     "numbers.title": "Gezählt, nicht geschätzt",
     "numbers.lede":
-      "Jede Zahl hier unten ist aus der API gelesen, nicht aus dem Gedächtnis. Eine veraltete Angabe in einem Portfolio wirkt nachlässig und nicht wie eine Momentaufnahme.",
+      "Jede Zahl hier kommt aus der GitHub-API und nicht aus dem Gedächtnis, und wird bei jeder Änderung neu geprüft. Ist eine davon veraltet, dann ist es die Seite auch.",
     "numbers.repos": "Öffentliche Repositories",
     "numbers.tests": "Tests grün",
     "numbers.deps": "Laufzeit-Abhängigkeiten",
@@ -144,29 +144,29 @@ const STRINGS = {
     "numbers.cap4": "Engines und Suche",
     "numbers.cap5": "Entwicklerwerkzeuge",
     "numbers.capsBody":
-      "Im Beruf verbinde ich Systeme, die nie füreinander gedacht waren. Zuverlässig, jeden Tag, ohne dass es jemandem auffällt. In den Repositories löse ich dieselben Aufgaben noch einmal von Grund auf, ohne fremden Abgabetermin im Nacken, und schreibe die Erkenntnisse auf, solange sie frisch sind.",
+      "Beruflich bringe ich Systeme dazu, miteinander zu reden, die nie dafür gedacht waren: zuverlässig, jeden Tag, ohne dass es jemandem auffällt. In den Repositories löse ich dieselben Aufgaben noch einmal von Grund auf, diesmal ohne Abgabetermin, der den Entwurf verbiegt, und schreibe sie auf, solange ich die Details noch weiß.",
     "numbers.stackLabel": "Aktuell im Einsatz",
     "numbers.stackBody":
-      "Eine Sprache steht hier, sobald etwas Öffentliches darin geschrieben ist. Rust, C++, C und C# sind geplant und stehen bewusst noch nicht dabei.",
+      "Eine Sprache steht hier erst, wenn es etwas Öffentliches darin gibt. Rust, C++, C und C# sind geplant, und genau deshalb stehen sie noch nicht dabei.",
 
     "work.eyebrow": "Projekte",
     "work.title": "Direkt ausprobieren",
     "work.lede":
-      "Keine Installation, keine Anmeldung. Fünf der sechs laufen sofort im Browser, das sechste ist privat und stattdessen beschrieben.",
+      "Keine Installation, keine Anmeldung. Fünf der sechs öffnen sich mit einem Klick im Browser. Das sechste ist ein privates Repository, dafür gibt es eine ausgeschriebene Fallstudie.",
     "work.hover": "zum Scrollen hovern",
     "work.private": "privates Repository",
     "work.stylo":
-      "Neunzehn stylometrische Merkmale eines Textes, jedes gegen den Bereich gestellt, den echte menschliche Fachprosa tatsächlich einnimmt. Wer den Text verfasst hat, sagt es nie; das ist keine Frage, die neunzehn Zahlen beantworten können, und die Einschränkungen stehen über dem Ergebnis statt in einer Fußnote darunter.",
+      "Misst neunzehn Eigenschaften eines Textes und stellt jede neben den Bereich, den echte menschliche Fachprosa einnimmt. Wer den Text geschrieben hat, rät es nie. Das können neunzehn Zahlen nicht beantworten, und die Seite sagt das oben statt im Kleingedruckten unten.",
     "work.outbox":
-      "Eine Datenbankänderung committen und ein Event veröffentlichen, ohne dass beides auseinanderfällt. Zwei Systeme können nicht gemeinsam committen, also ist die Lösung keine bessere Reihenfolge der Aufrufe, sondern sich zu weigern, zwei Commits zu haben.",
+      "Eine Zeile speichern und ein Event veröffentlichen, ohne dass beides auseinanderfällt. Datenbank und Message Broker können nicht gemeinsam committen, deshalb hilft keine andere Reihenfolge der Aufrufe. Der Ausweg ist ein Commit statt zwei: Das Event geht in dieselbe Datenbank, in dieselbe Transaktion, und wird danach von einem eigenen Prozess verschickt.",
     "work.recon":
-      "Zwei Systeme sind sich über einen Bestand uneinig. Die meisten Widersprüche sind Formatierung und nicht Inhalt, deshalb wird jede Toleranz bewusst und pro Feld gesetzt. Liest CSV oder streamt direkt aus Postgres.",
+      "Zwei Systeme sind sich über einen Bestand uneinig. Die meisten Abweichungen sind Formatierung und nicht Inhalt, deshalb schaltest du Toleranzen Feld für Feld frei und entscheidest selbst, was als Treffer zählt. Liest CSV-Dateien oder streamt direkt aus Postgres.",
     "work.chess":
-      "Eine vollständige Schach-Engine: alle FIDE-Regeln und ein Minimax-Bot mit Alpha-Beta-Pruning. Die Demo zeigt Bewertung, Anzahl legaler Züge und Stellungs-Hash direkt neben dem Brett.",
+      "Eine vollständige Schach-Engine: alle FIDE-Regeln und ein Minimax-Bot mit Alpha-Beta-Pruning. Die Demo zeigt beim Spielen die Bewertung, die Anzahl legaler Züge und den Stellungs-Hash neben dem Brett.",
     "work.patterns":
-      "Die Logik, die Integrationen zwischen Systemen korrekt hält. Idempotenz und Retry mit Full Jitter, jeweils mit dem Fehlerfall, den sie verhindern, und der typischen falschen Umsetzung.",
+      "Die zwei Muster, die verhindern, dass Integrationen zwischen Systemen still Daten beschädigen: Idempotenz und Retry mit Full Jitter. Jedes steht neben dem Fehler, den es verhindert, und neben der Variante, die man aus Versehen schreibt.",
     "work.arena":
-      "28 Spiele auf einer Plattform unter einer einzigen Architekturregel: Spiellogik fasst React nie an. Jede Engine ist reines TypeScript, deshalb laufen 940 Tests ganz ohne DOM.",
+      "28 Spiele auf einer Plattform, gebaut auf einer einzigen Regel: Die Spiellogik fasst React nie an. Jede Engine ist reines TypeScript, und genau deshalb laufen 940 Tests ganz ohne Browser.",
 
     "how.eyebrow": "Haltung",
     "how.title": "Wie ich an Bauen herangehe",
@@ -186,7 +186,7 @@ const STRINGS = {
       "Nichts davon stammt aus einem Buch. Jeder Punkt steht hier, weil es mich vorher etwas gekostet hat, und die Kosten stehen in der Commit-Historie, falls jemand nachsehen will.",
 
     "contact.eyebrow": "Kontakt",
-    "contact.note": "LinkedIn ist der Weg. Keine E-Mail-Adresse veröffentlicht, mit Absicht.",
+    "contact.note": "Über LinkedIn erreichst du mich am besten. Eine E-Mail-Adresse veröffentliche ich nirgends, und das ist Absicht.",
 
     "foot.workHead": "Projekte",
     "foot.elseHead": "Anderswo",
