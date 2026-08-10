@@ -54,7 +54,7 @@
 
 <header class="chrome">
   <div class="pill pill-status">
-    <span data-i18n="chrome.status">8 repos live · 263 tests green</span>
+    <span data-i18n="chrome.status">8 repos live · 279 tests green</span>
   </div>
 
   <nav class="pill pill-nav" aria-label="Sections">
@@ -86,7 +86,7 @@
     <div class="badge reveal">
       <b data-i18n="hero.badgeStrong">Eight repositories</b>
       <span data-i18n="hero.badgeRest">public, tested, running</span>
-      <span class="m">263 ✓</span>
+      <span class="m">279 ✓</span>
     </div>
 
     <p class="eyebrow reveal" data-i18n="hero.kicker">Software architect · Full-stack engineer</p>
@@ -121,7 +121,7 @@
         <span class="label" data-i18n="numbers.repos">Public repositories</span>
       </div>
       <div class="card s3 stat reveal">
-        <b>263<sup>✓</sup></b>
+        <b>279<sup>✓</sup></b>
         <span class="label" data-i18n="numbers.tests">Tests passing</span>
       </div>
       <div class="card s3 stat reveal">
@@ -131,9 +131,11 @@
       <div class="card s3 stat reveal">
         <!-- Counts itself: this is the figure after the pull request carrying
              it merges, so mid-session it reads one high. Read from gh api, not
-             from memory. 41 at 2026-07-31, plus this change and its twin on the
-             profile README. -->
-        <b>43</b>
+             from memory, and summed per public repo rather than through the
+             search endpoint, which counts two archived tutorial repos as well.
+             46 on 2026-08-10, plus this change and its twin on the profile
+             README. -->
+        <b>48</b>
         <span class="label" data-i18n="numbers.prs">Merged pull requests</span>
       </div>
 
@@ -219,7 +221,7 @@
           <div class="chips">
             <span class="chip chip-mono">Java</span>
             <span class="chip chip-mono">Postgres</span>
-            <span class="chip chip-mono">41 tests</span>
+            <span class="chip chip-mono">57 tests</span>
           </div>
         </a>
       </div>
