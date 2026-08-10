@@ -34,14 +34,14 @@ const STRINGS = {
     "hero.kicker": "Software architect · Full-stack engineer",
     "hero.title": 'I build whole systems.<br>Interface to <span class="accent">integration</span>.',
     "hero.lede":
-      "By day I build warehouse systems, ERP integrations and logistics APIs. The rest of the time I write engines, libraries and demos you can play. Everything on this page is public and tested, and most of it opens in a browser, so you can check it yourself instead of taking my word for it.",
+      "By day I build warehouse systems, ERP integrations and logistics APIs. The rest of the time I write engines, libraries and demos you can play. Everything here is public and tested. Most of it opens in a browser, so you do not have to take my word for any of it.",
     "hero.ctaPlay": "Play the chess engine",
     "hero.ctaWork": "See the work",
 
     "numbers.eyebrow": "By the numbers",
     "numbers.title": "Counted, not estimated",
     "numbers.lede":
-      "Every number here is read from the GitHub API rather than typed from memory, and checked again whenever something ships. If one of them is out of date, so is the page.",
+      "Every number here comes from the GitHub API, not from memory. They are checked again whenever something ships. If one is out of date, so is the page.",
     "numbers.repos": "Public repositories",
     "numbers.tests": "Tests passing",
     "numbers.deps": "Runtime dependencies",
@@ -54,29 +54,29 @@ const STRINGS = {
     "numbers.cap4": "Engines and search",
     "numbers.cap5": "Developer tooling",
     "numbers.capsBody":
-      "My day job is getting systems to talk to each other that were never designed to: reliably, every day, without anyone noticing. The repositories are the same problems solved again from scratch, this time with no deadline bending the design, and written up while I still remember the details.",
+      "My day job is making systems talk to each other that were never built to. Reliably, every day, without anyone noticing. The repos here are the same problems solved again from scratch. No deadline bending the design this time, and written up while I still remember why.",
     "numbers.stackLabel": "Shipping today",
     "numbers.stackBody":
-      "A language only appears here once there is something public written in it. Rust, C++, C and C# are on the plan, which is exactly why they are not on this list yet.",
+      "A language appears here once something public is written in it. Rust, C++, C and C# are on the plan. That is precisely why they are not on the list yet.",
 
     "work.eyebrow": "Work",
     "work.title": "Things you can open right now",
     "work.lede":
-      "No install, no sign-up. Five of the six open in your browser as soon as you click. The sixth is a private repository, so there is a written case study instead.",
+      "No install, no sign-up. Five of the six open in your browser the moment you click. The sixth is private, so it gets a written case study instead.",
     "work.hover": "hover to scroll",
     "work.private": "private repository",
     "work.stylo":
-      "It measures nineteen things about a piece of writing and shows each one next to the range you find in real human academic prose. It never guesses who wrote the text. Nineteen numbers cannot answer that, and the page says so at the top rather than in small print at the bottom.",
+      "Nineteen measurements of a text, each shown against the range real human academic writing occupies. It never guesses who wrote it. Nineteen numbers cannot answer that question, and the page says so at the top instead of in small print at the bottom.",
     "work.outbox":
-      "Save a row and publish an event without the two coming apart. A database and a message broker cannot commit together, so reordering the two calls will never fix it. The way out is to have one commit instead of two: the event is written to the same database in the same transaction, and sent afterwards by a separate process.",
+      "Save a row and publish an event without the two coming apart. A database and a broker cannot commit together, so no ordering of the calls will save you. The fix is to stop having two commits. The event goes into the same database, in the same transaction, and a separate process sends it afterwards.",
     "work.recon":
-      "Two systems disagree about a stock count. Most of the differences turn out to be formatting rather than real, so you turn tolerances on one field at a time and decide yourself what counts as a match. It reads CSV files, or streams straight from Postgres.",
+      "Two systems disagree about a stock count. Most of the differences turn out to be formatting, not fact. So you switch tolerances on one field at a time and decide for yourself what counts as a match. Reads CSV, or streams straight from Postgres.",
     "work.chess":
-      "A complete chess engine: all the FIDE rules, and a minimax bot with alpha-beta pruning. The demo shows the evaluation, the number of legal moves and the position hash beside the board while you play.",
+      "A complete chess engine. Every FIDE rule, and a minimax bot with alpha-beta pruning. The demo puts the evaluation, the legal move count and the position hash beside the board while you play.",
     "work.patterns":
-      "The two patterns that stop system-to-system integrations quietly corrupting data: idempotency, and retry with full jitter. Each one is shown next to the failure it prevents, and next to the version people write by mistake.",
+      "Two patterns that keep integrations from quietly corrupting data: idempotency, and retry with full jitter. Each is shown next to the failure it prevents. And next to the version people write by mistake.",
     "work.arena":
-      "28 games on one platform, built on a single rule: the game logic never touches React. Every engine is plain TypeScript, which is how 940 tests run without a browser.",
+      "28 games on one platform, under a single rule: game logic never touches React. Every engine is plain TypeScript. That is how 940 tests run without a browser.",
 
     "how.eyebrow": "Approach",
     "how.title": "How I think about building",
@@ -85,13 +85,13 @@ const STRINGS = {
       "A comment that says \"do not pass a connection pool here\" is a comment somebody will skip. So recon's Postgres source accepts one open connection and nothing else. Its cursor lives on the server, on the connection that opened it, and a pool hands out a different connection every call. The type turns that mistake into code you cannot write.",
     "how.p2t": "Test the thing that only breaks under load",
     "how.p2":
-      "Run pg-outbox with a single relay and it looks perfect: events publish, retries back off, failures land in the dead-letter table. Start a second relay and both can claim the same row. The bug needs concurrency to show up, which is why an untested version ships without complaint, runs for weeks, and then wakes somebody up at three in the morning.",
+      "Run pg-outbox with one relay and it looks perfect. Events publish, retries back off, failures land in the dead-letter table. Start a second relay and both can claim the same row. The bug needs concurrency to appear. So the untested version ships without complaint, runs for weeks, then wakes somebody at three in the morning.",
     "how.p3t": "A plausible number is worse than a crash",
     "how.p3":
-      "Two bugs in stylo turned up because I measured a corpus and stared at the few numbers that made no sense. No test caught them. Neither one crashed. Both returned figures you would read straight past, and that is the kind of failure that survives review.",
+      "Two bugs in stylo turned up because I measured a corpus and stared at the handful of numbers that made no sense. No test caught them. Neither one crashed. Both returned figures you would read straight past. That is the kind of failure that survives review.",
     "how.p4t": "Say what it cannot do, and say it first",
     "how.p4":
-      "Every README here opens with what the project cannot do instead of hiding it near the bottom. Being clear about the limits is what makes the rest of it worth believing, and it is usually the part that gets left out.",
+      "Every README here opens with what the project cannot do, rather than burying it at the bottom. Being straight about the limits is what makes the rest worth believing. It is also the part most projects leave out.",
     "how.note":
       "None of these came out of a book. Each one is here because getting it wrong cost me something first, and you can find the cost in the commit history.",
 
