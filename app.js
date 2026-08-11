@@ -21,7 +21,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Software architect",
 
     "ruler.live": "LIVE",
-    "chrome.status": "8 repos live · 294 tests green",
+    "chrome.status": "10 repos live · 410 tests green",
     "nav.work": "Work",
     "nav.numbers": "Numbers",
     "nav.approach": "Approach",
@@ -29,7 +29,7 @@ const STRINGS = {
     "nav.lang": "DE",
     "cursor.you": "you",
 
-    "hero.badgeStrong": "Eight repositories",
+    "hero.badgeStrong": "Ten repositories",
     "hero.badgeRest": "public, tested, running",
     "hero.kicker": "Software architect · Full-stack engineer",
     "hero.title": 'I build whole systems.<br>Interface to <span class="accent">integration</span>.',
@@ -62,9 +62,13 @@ const STRINGS = {
     "work.eyebrow": "Work",
     "work.title": "Things you can open right now",
     "work.lede":
-      "No install, no sign-up. Five of the six open in your browser the moment you click. The sixth is private, so it gets a written case study instead.",
+      "No install, no sign-up. Seven of the eight open in your browser the moment you click. The eighth is private, so it gets a written case study instead.",
     "work.hover": "hover to scroll",
     "work.private": "private repository",
+    "work.rally":
+      "Two browsers play each other with nothing in between. No game server, no lobby, no signalling: you send a link, they send one back, and the browsers connect directly. Each side plays your input at once and guesses the other, then rewinds and replays when the guess was wrong. The panel counts every correction while you play.",
+    "work.slotting":
+      "Which product goes in which bin, so the picker walks less. Ranking by how often something is picked is the standard advice, and it aims at the wrong target: a picker walks one route through the whole list, so you pay for the route and not for the distance to each item. Two products that always ship together belong side by side, even when neither sells well.",
     "work.stylo":
       "Nineteen measurements of a text, each shown against the range real human academic writing occupies. It never guesses who wrote it. Nineteen numbers cannot answer that question, and the page says so at the top instead of in small print at the bottom.",
     "work.outbox":
@@ -111,7 +115,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Softwarearchitekt",
 
     "ruler.live": "LIVE",
-    "chrome.status": "8 Repos live · 294 Tests grün",
+    "chrome.status": "10 Repos live · 410 Tests grün",
     "nav.work": "Projekte",
     "nav.numbers": "Zahlen",
     "nav.approach": "Haltung",
@@ -119,7 +123,7 @@ const STRINGS = {
     "nav.lang": "EN",
     "cursor.you": "du",
 
-    "hero.badgeStrong": "Acht Repositories",
+    "hero.badgeStrong": "Zehn Repositories",
     "hero.badgeRest": "öffentlich, getestet, im Betrieb",
     "hero.kicker": "Softwarearchitekt · Full-Stack-Engineer",
     "hero.title": 'Ich baue ganze Systeme.<br>Vom Interface zur <span class="accent">Integration</span>.',
@@ -152,9 +156,13 @@ const STRINGS = {
     "work.eyebrow": "Projekte",
     "work.title": "Direkt ausprobieren",
     "work.lede":
-      "Keine Installation, keine Anmeldung. Fünf der sechs öffnen sich mit einem Klick im Browser. Das sechste ist ein privates Repository, dafür gibt es eine ausgeschriebene Fallstudie.",
+      "Keine Installation, keine Anmeldung. Sieben der acht öffnen sich mit einem Klick im Browser. Das achte ist ein privates Repository, dafür gibt es eine ausgeschriebene Fallstudie.",
     "work.hover": "zum Scrollen hovern",
     "work.private": "privates Repository",
+    "work.rally":
+      "Zwei Browser spielen gegeneinander, ohne irgendetwas dazwischen. Kein Spielserver, keine Lobby, kein Signalling: Du schickst einen Link, du bekommst einen zurück, und die Browser verbinden sich direkt. Jede Seite spielt deine Eingabe sofort und rät die des Gegners, spult zurück und rechnet neu, wenn sie danebenlag. Die Anzeige zählt jede Korrektur beim Spielen mit.",
+    "work.slotting":
+      "Welcher Artikel kommt in welchen Platz, damit der Kommissionierer weniger läuft. Nach Zugriffshäufigkeit zu sortieren ist der Standardrat und zielt auf die falsche Größe: Gelaufen wird eine Tour über die ganze Liste, bezahlt wird also die Tour und nicht der Weg zu jedem einzelnen Artikel. Zwei Artikel, die immer zusammen rausgehen, gehören nebeneinander, auch wenn keiner von beiden häufig ist.",
     "work.stylo":
       "Misst neunzehn Eigenschaften eines Textes und stellt jede neben den Bereich, den echte menschliche Fachprosa einnimmt. Wer den Text geschrieben hat, rät es nie. Das können neunzehn Zahlen nicht beantworten, und die Seite sagt das oben statt im Kleingedruckten unten.",
     "work.outbox":
