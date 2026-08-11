@@ -21,7 +21,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Software architect",
 
     "ruler.live": "LIVE",
-    "chrome.status": "10 repos live · 410 tests green",
+    "chrome.status": "10 repos live · 436 tests green",
     "nav.work": "Work",
     "nav.numbers": "Numbers",
     "nav.approach": "Approach",
@@ -115,7 +115,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Softwarearchitekt",
 
     "ruler.live": "LIVE",
-    "chrome.status": "10 Repos live · 410 Tests grün",
+    "chrome.status": "10 Repos live · 436 Tests grün",
     "nav.work": "Projekte",
     "nav.numbers": "Zahlen",
     "nav.approach": "Haltung",
