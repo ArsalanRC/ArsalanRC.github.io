@@ -217,6 +217,25 @@ function applyLang(lang) {
     if (v !== undefined) el.innerHTML = v;
   }
 
+  /* The work grid is photographs of live pages, and every one of those pages
+     is itself bilingual. Leaving the English screenshots up on the German page
+     puts English inside the frame of a card whose caption is German, which
+     reads as a page that was translated half way. Each tagged image has a
+     German twin at `<base>.de.jpg`.
+
+     Only the cards with a public bilingual page carry `data-shot`. The Game
+     Arena card is a private application rather than a deployed page, so it has
+     no German twin and is deliberately left alone rather than given a
+     placeholder. */
+  for (const img of document.querySelectorAll("img[data-shot]")) {
+    const base = img.dataset.shot;
+    const next = `./assets/cards/${base}${lang === "de" ? ".de" : ""}.jpg`;
+    /* Compare against the attribute rather than `img.src`, which the browser
+       resolves to an absolute URL and would never match. Assigning the same
+       value again would restart the decode on every language toggle. */
+    if (img.getAttribute("src") !== next) img.setAttribute("src", next);
+  }
+
   if (d["meta.title"]) document.title = d["meta.title"];
   try { localStorage.setItem("ak-lang", lang); } catch { /* private mode */ }
 }
