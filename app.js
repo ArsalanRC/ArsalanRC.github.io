@@ -29,7 +29,7 @@ const STRINGS = {
     "nav.lang": "DE",
     "cursor.you": "you",
 
-    "hero.badgeStrong": "Ten repositories",
+    "hero.badgeStrong": "Eleven repositories",
     "hero.badgeRest": "public, tested, running",
     "hero.kicker": "Software architect · Full-stack engineer",
     "hero.title": 'I build whole systems.<br>Interface to <span class="accent">integration</span>.',
