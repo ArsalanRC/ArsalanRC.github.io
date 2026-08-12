@@ -21,7 +21,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Software architect",
 
     "ruler.live": "LIVE",
-    "chrome.status": "10 repos live · 450 tests green",
+    "chrome.status": "11 repos live · 550 tests green",
     "nav.work": "Work",
     "nav.numbers": "Numbers",
     "nav.approach": "Approach",
@@ -62,9 +62,11 @@ const STRINGS = {
     "work.eyebrow": "Work",
     "work.title": "Things you can open right now",
     "work.lede":
-      "No install, no sign-up. Seven of the eight open in your browser the moment you click. The eighth is private, so it gets a written case study instead.",
+      "No install, no sign-up. Eight of the nine open in your browser the moment you click. The ninth is private, so it gets a written case study instead.",
     "work.hover": "hover to scroll",
     "work.private": "private repository",
+    "work.plinth":
+      "Mint a token, put it up for sale, buy somebody else's. The art is drawn by the contract itself, so there is no IPFS hash to go dead and nothing to keep paying for. The page talks to Polygon with no wallet library at all, and runs on invented data until you connect one, because most people will not install an extension to look at a portfolio piece.",
     "work.rally":
       "Two browsers play each other with nothing in between. No game server, no lobby, no signalling: you send a link, they send one back, and the browsers connect directly. Each side plays your input at once and guesses the other, then rewinds and replays when the guess was wrong. The panel counts every correction while you play.",
     "work.slotting":
@@ -115,7 +117,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Softwarearchitekt",
 
     "ruler.live": "LIVE",
-    "chrome.status": "10 Repos live · 450 Tests grün",
+    "chrome.status": "11 Repos live · 550 Tests grün",
     "nav.work": "Projekte",
     "nav.numbers": "Zahlen",
     "nav.approach": "Haltung",
@@ -123,7 +125,7 @@ const STRINGS = {
     "nav.lang": "EN",
     "cursor.you": "du",
 
-    "hero.badgeStrong": "Zehn Repositories",
+    "hero.badgeStrong": "Elf Repositories",
     "hero.badgeRest": "öffentlich, getestet, im Betrieb",
     "hero.kicker": "Softwarearchitekt · Full-Stack-Engineer",
     "hero.title": 'Ich baue ganze Systeme.<br>Vom Interface zur <span class="accent">Integration</span>.',
@@ -156,9 +158,11 @@ const STRINGS = {
     "work.eyebrow": "Projekte",
     "work.title": "Direkt ausprobieren",
     "work.lede":
-      "Keine Installation, keine Anmeldung. Sieben der acht öffnen sich mit einem Klick im Browser. Das achte ist ein privates Repository, dafür gibt es eine ausgeschriebene Fallstudie.",
+      "Keine Installation, keine Anmeldung. Acht der neun öffnen sich mit einem Klick im Browser. Das neunte ist ein privates Repository, dafür gibt es eine ausgeschriebene Fallstudie.",
     "work.hover": "zum Scrollen hovern",
     "work.private": "privates Repository",
+    "work.plinth":
+      "Token minten, zum Verkauf stellen, den von jemand anderem kaufen. Die Grafik zeichnet der Vertrag selbst, also gibt es keinen IPFS-Hash, der stirbt, und nichts, wofür jemand dauerhaft zahlen muss. Die Seite redet ohne jede Wallet-Library mit Polygon und läuft auf erfundenen Daten, bis du eine verbindest. Kaum jemand installiert eine Extension, nur um sich ein Portfolio anzusehen.",
     "work.rally":
       "Zwei Browser spielen gegeneinander, ohne irgendetwas dazwischen. Kein Spielserver, keine Lobby, kein Signalling: Du schickst einen Link, du bekommst einen zurück, und die Browser verbinden sich direkt. Jede Seite spielt deine Eingabe sofort und rät die des Gegners, spult zurück und rechnet neu, wenn sie danebenlag. Die Anzeige zählt jede Korrektur beim Spielen mit.",
     "work.slotting":

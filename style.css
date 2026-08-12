@@ -656,6 +656,8 @@ a.card:hover { transform: translateY(-2px); box-shadow: var(--lift-2); }
 
 .file i { width: 9px; height: 9px; border-radius: 2px; background: var(--faint); flex: none; }
 
+/* GitHub's own language colours, so the dots agree with the repo pages. */
+.f-sol  i { background: #AA6746; }
 .f-ts   i { background: #3178C6; }
 .f-py   i { background: #3572A5; }
 .f-java i { background: #B07219; }
