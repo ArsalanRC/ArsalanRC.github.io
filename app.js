@@ -21,7 +21,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Software architect",
 
     "ruler.live": "LIVE",
-    "chrome.status": "11 repos live · 550 tests green",
+    "chrome.status": "12 repos live · 637 tests green",
     "nav.work": "Work",
     "nav.numbers": "Numbers",
     "nav.approach": "Approach",
@@ -29,7 +29,7 @@ const STRINGS = {
     "nav.lang": "DE",
     "cursor.you": "you",
 
-    "hero.badgeStrong": "Eleven repositories",
+    "hero.badgeStrong": "Twelve repositories",
     "hero.badgeRest": "public, tested, running",
     "hero.kicker": "Software architect · Full-stack engineer",
     "hero.title": 'I build whole systems.<br>Interface to <span class="accent">integration</span>.',
@@ -62,9 +62,11 @@ const STRINGS = {
     "work.eyebrow": "Work",
     "work.title": "Things you can open right now",
     "work.lede":
-      "No install, no sign-up. Eight of the nine open in your browser the moment you click. The ninth is private, so it gets a written case study instead.",
+      "No install, no sign-up. Nine of the ten open in your browser the moment you click. The tenth is private, so it gets a written case study instead.",
     "work.hover": "hover to scroll",
     "work.private": "private repository",
+    "work.lounge":
+      "A game lounge inside Decentraland, designed for the phone first. Four shared tables, three games from my Game Arena engines, a house bot for empty rooms, and no server: every table is a synced component with a strict rule for who may write to it. Sitting down is one tap, the board is the shared show, the screen is the controller. The page shows it; playing needs the free Decentraland app.",
     "work.plinth":
       "Mint a token, put it up for sale, buy somebody else's. The art is drawn by the contract itself, so there is no IPFS hash to go dead and nothing to keep paying for. The page talks to Polygon with no wallet library at all, and runs on invented data until you connect one, because most people will not install an extension to look at a portfolio piece.",
     "work.rally":
@@ -117,7 +119,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Softwarearchitekt",
 
     "ruler.live": "LIVE",
-    "chrome.status": "11 Repos live · 550 Tests grün",
+    "chrome.status": "12 Repos live · 637 Tests grün",
     "nav.work": "Projekte",
     "nav.numbers": "Zahlen",
     "nav.approach": "Haltung",
@@ -125,7 +127,7 @@ const STRINGS = {
     "nav.lang": "EN",
     "cursor.you": "du",
 
-    "hero.badgeStrong": "Elf Repositories",
+    "hero.badgeStrong": "Zwölf Repositories",
     "hero.badgeRest": "öffentlich, getestet, im Betrieb",
     "hero.kicker": "Softwarearchitekt · Full-Stack-Engineer",
     "hero.title": 'Ich baue ganze Systeme.<br>Vom Interface zur <span class="accent">Integration</span>.',
@@ -158,9 +160,11 @@ const STRINGS = {
     "work.eyebrow": "Projekte",
     "work.title": "Direkt ausprobieren",
     "work.lede":
-      "Keine Installation, keine Anmeldung. Acht der neun öffnen sich mit einem Klick im Browser. Das neunte ist ein privates Repository, dafür gibt es eine ausgeschriebene Fallstudie.",
+      "Keine Installation, keine Anmeldung. Neun der zehn öffnen sich mit einem Klick im Browser. Das zehnte ist ein privates Repository, dafür gibt es eine ausgeschriebene Fallstudie.",
     "work.hover": "zum Scrollen hovern",
     "work.private": "privates Repository",
+    "work.lounge":
+      "Eine Spiel-Lounge in Decentraland, zuerst fürs Handy gedacht. Vier gemeinsame Tische, drei Spiele aus meinen Game-Arena-Engines, ein Bot für leere Räume, und kein Server: Jeder Tisch ist eine synchronisierte Komponente mit klarer Regel, wer sie beschreiben darf. Hinsetzen ist ein Tipp, das Brett ist die gemeinsame Bühne, der Bildschirm der Controller. Die Seite zeigt es; spielen geht mit der kostenlosen Decentraland-App.",
     "work.plinth":
       "Token minten, zum Verkauf stellen, den von jemand anderem kaufen. Die Grafik zeichnet der Vertrag selbst, also gibt es keinen IPFS-Hash, der stirbt, und nichts, wofür jemand dauerhaft zahlen muss. Die Seite redet ohne jede Wallet-Library mit Polygon und läuft auf erfundenen Daten, bis du eine verbindest. Kaum jemand installiert eine Extension, nur um sich ein Portfolio anzusehen.",
     "work.rally":
