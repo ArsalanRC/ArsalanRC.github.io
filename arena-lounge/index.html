@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Arena Lounge</title>
-<meta name="description" content="A cosy game lounge for Decentraland, built for phones: shared tables, Connect Four, Dot Lines and Reversi, a house bot, no downloads.">
+<meta name="description" content="A game lounge for Decentraland, built for phones: eight games at shared tables under a twisted tower, a house bot, no downloads.">
 <meta property="og:title" content="Arena Lounge">
 <meta property="og:description" content="Walk in, take a seat, play a friend. A mobile-first social game lounge for Decentraland.">
-<meta property="og:image" content="screenshots/connect-four.jpg">
+<meta property="og:image" content="screenshots/tower-overview.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e5f'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%23f5c518'/%3E%3C/svg%3E">
 <style>
   :root {
@@ -150,8 +150,8 @@
       <p class="kicker"><span data-lang="en">Decentraland · built for phones</span><span data-lang="de">Decentraland · gebaut fürs Handy</span></p>
       <h1 data-lang="en">Walk in, take a seat, <em>play a friend</em>.</h1>
       <h1 data-lang="de">Reinkommen, hinsetzen, <em>eine Runde spielen</em>.</h1>
-      <p class="lede" data-lang="en">A cosy game lounge in Decentraland. Four shared tables, three games, a house bot for when the room is empty. Everything runs on a phone and loads in seconds.</p>
-      <p class="lede" data-lang="de">Eine kleine Spiel-Lounge in Decentraland. Vier gemeinsame Tische, drei Spiele, ein Bot fürs Warmhalten, wenn gerade niemand da ist. Läuft auf dem Handy und lädt in Sekunden.</p>
+      <p class="lede" data-lang="en">A game lounge in Decentraland under a twisted tower. Nine shared tables, eight games from Connect Four to Chess, a game room and a rooftop up the elevator, a house bot for when the room is empty. Everything runs on a phone and loads in seconds.</p>
+      <p class="lede" data-lang="de">Eine Spiel-Lounge in Decentraland unter einem verdrehten Turm. Neun gemeinsame Tische, acht Spiele von Vier gewinnt bis Schach, ein Spielzimmer und eine Dachterrasse per Aufzug, ein Bot fürs Warmhalten, wenn gerade niemand da ist. Läuft auf dem Handy und lädt in Sekunden.</p>
       <div class="actions">
         <a class="btn" id="play" href="decentraland://?realm=arenalounge.dcl.eth"><span data-lang="en">Open in Decentraland</span><span data-lang="de">In Decentraland öffnen</span></a>
         <a class="btn alt" href="https://github.com/ArsalanRC/arena-lounge"><span data-lang="en">Source on GitHub (opens Sept 2026)</span><span data-lang="de">Code auf GitHub (ab Sept. 2026)</span></a>
@@ -171,13 +171,13 @@
     <div class="cards">
       <article class="card">
         <h3><span data-lang="en">The screen is the controller</span><span data-lang="de">Der Bildschirm ist der Controller</span></h3>
-        <p data-lang="en">On a phone, tapping a 3D object means aiming a crosshair first. Here you tap big buttons at thumb height: seven columns for Connect Four, dots for Dot Lines, squares for Reversi. The 3D table is the shared show.</p>
-        <p data-lang="de">Auf dem Handy heißt "3D-Objekt antippen" erst mal zielen. Hier tippst du auf große Buttons in Daumenhöhe: sieben Spalten bei Vier gewinnt, Punkte bei Käsekästchen, Felder bei Reversi. Der 3D-Tisch ist die gemeinsame Bühne.</p>
+        <p data-lang="en">On a phone, tapping a 3D object means aiming a crosshair first. Here you tap a bar at the bottom of the screen: seven drop buttons for Connect Four, finger-sized boards for Chess, Checkers, Reversi and Dot Lines, a ring of teeth for Croc Snap. The 3D table is the shared show.</p>
+        <p data-lang="de">Auf dem Handy heißt "3D-Objekt antippen" erst mal zielen. Hier tippst du auf eine Leiste am unteren Rand: sieben Wurf-Buttons bei Vier gewinnt, fingergroße Bretter bei Schach, Dame, Reversi und Käsekästchen, ein Zahnkranz bei Croc Snap. Der 3D-Tisch ist die gemeinsame Bühne.</p>
       </article>
       <article class="card">
         <h3><span data-lang="en">One tap to sit</span><span data-lang="de">Ein Tipp zum Hinsetzen</span></h3>
-        <p data-lang="en">Near a table a card offers "Sit as Yellow", "Sit as Red" or "Play the house bot". Sitting snaps you onto the seat, facing the board, in first person. "Stand up" is always one tap away.</p>
-        <p data-lang="de">In Tischnähe bietet eine Karte "Sit as Yellow", "Sit as Red" oder "Play the house bot" an. Beim Hinsetzen stellst du dich automatisch an den Platz, Blick aufs Brett, in der Ego-Perspektive. "Stand up" ist immer einen Tipp entfernt.</p>
+        <p data-lang="en">Near a table a card offers "Sit as Yellow", "Sit as Red" or "Play the house bot". Sitting snaps you onto the seat, facing the board, in first person. "Stand up" is always one tap away. Step onto an elevator pad and a panel takes you to the game room or the rooftop, no stairs.</p>
+        <p data-lang="de">In Tischnähe bietet eine Karte "Sit as Yellow", "Sit as Red" oder "Play the house bot" an. Beim Hinsetzen stellst du dich automatisch an den Platz, Blick aufs Brett, in der Ego-Perspektive. "Stand up" ist immer einen Tipp entfernt. Ein Schritt auf die Aufzugsplatte, und ein Panel bringt dich ins Spielzimmer oder aufs Dach, ganz ohne Treppe.</p>
       </article>
       <article class="card">
         <h3><span data-lang="en">Shared tables, really shared</span><span data-lang="de">Gemeinsame Tische, wirklich gemeinsam</span></h3>
@@ -186,8 +186,8 @@
       </article>
       <article class="card">
         <h3><span data-lang="en">Nothing to download</span><span data-lang="de">Nichts zum Herunterladen</span></h3>
-        <p data-lang="en">Every model is a primitive, every texture a small procedural image, every sound a synthesised WAV. About 500 entities and 15k triangles for a 2x2 parcel World: it loads on 4G before you have found the joystick.</p>
-        <p data-lang="de">Jedes Modell ist ein Primitiv, jede Textur ein kleines, generiertes Bild, jeder Ton eine synthetisierte WAV. Rund 500 Entities und 15k Dreiecke für eine 2x2-Parzellen-World: lädt über 4G, bevor du den Joystick gefunden hast.</p>
+        <p data-lang="en">Every model is a primitive except the tower and the leaf balls, two small GLBs written by a Python script; every texture is a small procedural image, every sound a synthesised WAV. About 880 entities and 53k triangles for a 3x3 World: it loads on 4G before you have found the joystick.</p>
+        <p data-lang="de">Jedes Modell ist ein Primitiv, außer dem Turm und den Baumkronen, zwei kleinen GLBs aus einem Python-Skript; jede Textur ein kleines, generiertes Bild, jeder Ton eine synthetisierte WAV. Rund 880 Entities und 53k Dreiecke für eine 3x3-World: lädt über 4G, bevor du den Joystick gefunden hast.</p>
       </article>
     </div>
   </section>
@@ -196,9 +196,9 @@
     <h2 data-lang="en">A look inside</h2>
     <h2 data-lang="de">Ein Blick hinein</h2>
     <div class="shots">
-      <figure><img src="screenshots/lounge.jpg" alt="The lounge from the entrance: tables in an arc, seat pads, robots on the corners" loading="lazy"><figcaption><span data-lang="en">The lounge from the entrance. Rugs mark the tables, robots wait on the corners.</span><span data-lang="de">Die Lounge vom Eingang aus. Teppiche markieren die Tische, auf den Ecken warten die Roboter.</span></figcaption></figure>
+      <figure><img src="screenshots/tower-overview.jpg" alt="The tower: a woven lattice over the lounge with the game room and the rooftop terrace" loading="lazy"><figcaption><span data-lang="en">The tower over the lounge: a woven lattice, the game room, the rooftop terrace.</span><span data-lang="de">Der Turm über der Lounge: ein geflochtenes Gitter, das Spielzimmer, die Dachterrasse.</span></figcaption></figure>
+      <figure><img src="screenshots/lounge.jpg" alt="Arrival: the gateway, the plaza tree, the corners and the game room above" loading="lazy"><figcaption><span data-lang="en">Arrival. The gateway, the plaza tree, six corners, and the game room overhead.</span><span data-lang="de">Ankunft. Das Tor, der Baum auf dem Platz, sechs Ecken und darüber das Spielzimmer.</span></figcaption></figure>
       <figure><img src="screenshots/connect-four.jpg" alt="Seated at Connect Four in first person, controller docked to the right" loading="lazy"><figcaption><span data-lang="en">Seated at Connect Four. The frame is see-through, like the real toy.</span><span data-lang="de">Am Vier-gewinnt-Tisch. Der Rahmen ist durchsichtig, wie beim echten Spiel.</span></figcaption></figure>
-      <figure><img src="screenshots/dot-lines.jpg" alt="Dot Lines table with the tap-a-dot controller" loading="lazy"><figcaption><span data-lang="en">Dot Lines: tap a dot, then a neighbour. Closing a box gives you another turn.</span><span data-lang="de">Käsekästchen: Punkt antippen, dann den Nachbarpunkt. Wer ein Kästchen schließt, ist noch mal dran.</span></figcaption></figure>
       <figure><img src="screenshots/how-to-play.jpg" alt="How to play panel with the language picker" loading="lazy"><figcaption><span data-lang="en">How to play, in 19 languages, from the info kiosk or the "?" button.</span><span data-lang="de">Spielregeln in 19 Sprachen, am Infoständer oder über den "?"-Button.</span></figcaption></figure>
     </div>
   </section>
@@ -221,8 +221,8 @@
       <ul>
         <li data-lang="en">Decentraland SDK7, TypeScript, React-ECS UI. No server: tables are CRDT-synced components, one per table, with a strict rule for who may write what.</li>
         <li data-lang="de">Decentraland SDK7, TypeScript, React-ECS-UI. Kein Server: Tische sind CRDT-synchronisierte Komponenten, eine pro Tisch, mit klarer Regel, wer was schreiben darf.</li>
-        <li data-lang="en">Games are plugins: pure engines from Game Arena (Connect Four, Dot Lines, Reversi, 87 unit tests) plus a 3D view and a touch controller each.</li>
-        <li data-lang="de">Spiele sind Plugins: pure Engines aus Game Arena (Vier gewinnt, Käsekästchen, Reversi, 87 Unit-Tests) plus je eine 3D-Ansicht und einen Touch-Controller.</li>
+        <li data-lang="en">Games are plugins: pure engines from Game Arena (eight games, 285 unit tests) plus a 3D view and a touch controller each. The chess bot searches under a time budget so a slow phone never freezes.</li>
+        <li data-lang="de">Spiele sind Plugins: pure Engines aus Game Arena (acht Spiele, 285 Unit-Tests) plus je eine 3D-Ansicht und einen Touch-Controller. Der Schach-Bot rechnet mit Zeitbudget, damit ein langsames Handy nie einfriert.</li>
       </ul>
       <ul>
         <li data-lang="en">The house bot (minimax) is driven by the human sharing the table, so nobody needs a server to keep a table warm.</li>
