@@ -66,7 +66,7 @@ const STRINGS = {
     "work.hover": "hover to scroll",
     "work.private": "private repository",
     "work.lounge":
-      "A game lounge inside Decentraland, designed for the phone first. Nine shared tables under a twisted tower, eight games from my Game Arena engines, a game room and a rooftop up the elevator, a house bot for empty rooms, and no server: every table is a synced component with a strict rule for who may write to it. Sitting down is one tap, the board is the shared show, the screen is the controller. The page shows it; playing needs the free Decentraland app.",
+      "A game lounge inside Decentraland, designed for the phone first. Fifteen shared tables on four floors of a twisted, lit tower, fourteen games from my Game Arena engines, a house bot for empty rooms, and no server: every table is a synced component with a strict rule for who may write to it. Sitting down is one tap, the board is the shared show, the screen is the controller. The page shows it; playing needs the free Decentraland app.",
     "work.plinth":
       "Mint a token, put it up for sale, buy somebody else's. The art is drawn by the contract itself, so there is no IPFS hash to go dead and nothing to keep paying for. The page talks to Polygon with no wallet library at all, and runs on invented data until you connect one, because most people will not install an extension to look at a portfolio piece.",
     "work.rally":
@@ -164,7 +164,7 @@ const STRINGS = {
     "work.hover": "zum Scrollen hovern",
     "work.private": "privates Repository",
     "work.lounge":
-      "Eine Spiel-Lounge in Decentraland, zuerst fürs Handy gedacht. Neun gemeinsame Tische unter einem verdrehten Turm, acht Spiele aus meinen Game-Arena-Engines, ein Spielzimmer und eine Dachterrasse per Aufzug, ein Bot für leere Räume, und kein Server: Jeder Tisch ist eine synchronisierte Komponente mit klarer Regel, wer sie beschreiben darf. Hinsetzen ist ein Tipp, das Brett ist die gemeinsame Bühne, der Bildschirm der Controller. Die Seite zeigt es; spielen geht mit der kostenlosen Decentraland-App.",
+      "Eine Spiel-Lounge in Decentraland, zuerst fürs Handy gedacht. Fünfzehn gemeinsame Tische auf vier Etagen eines verdrehten, beleuchteten Turms, vierzehn Spiele aus meinen Game-Arena-Engines, ein Bot für leere Räume, und kein Server: Jeder Tisch ist eine synchronisierte Komponente mit klarer Regel, wer sie beschreiben darf. Hinsetzen ist ein Tipp, das Brett ist die gemeinsame Bühne, der Bildschirm der Controller. Die Seite zeigt es; spielen geht mit der kostenlosen Decentraland-App.",
     "work.plinth":
       "Token minten, zum Verkauf stellen, den von jemand anderem kaufen. Die Grafik zeichnet der Vertrag selbst, also gibt es keinen IPFS-Hash, der stirbt, und nichts, wofür jemand dauerhaft zahlen muss. Die Seite redet ohne jede Wallet-Library mit Polygon und läuft auf erfundenen Daten, bis du eine verbindest. Kaum jemand installiert eine Extension, nur um sich ein Portfolio anzusehen.",
     "work.rally":
