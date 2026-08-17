@@ -66,7 +66,7 @@ const STRINGS = {
     "work.hover": "hover to scroll",
     "work.private": "private repository",
     "work.lounge":
-      "My entry for the Decentraland Friendzone Mobile Buildathon 2026, and the one thing on this page kept under wraps: what it is, how it plays and the source appear once submissions close on 4 September 2026. Until then the page behind this card says exactly that much and no more.",
+      "My entry for the Decentraland Friendzone Mobile Buildathon 2026. The idea and the screenshots go up once submissions close on 4 September 2026. The code itself stays private, so this card links to the write-up rather than to a repository.",
     "work.plinth":
       "Mint a token, put it up for sale, buy somebody else's. The art is drawn by the contract itself, so there is no IPFS hash to go dead and nothing to keep paying for. The page talks to Polygon with no wallet library at all, and runs on invented data until you connect one, because most people will not install an extension to look at a portfolio piece.",
     "work.rally":
@@ -164,7 +164,7 @@ const STRINGS = {
     "work.hover": "zum Scrollen hovern",
     "work.private": "privates Repository",
     "work.lounge":
-      "Mein Beitrag zum Decentraland Friendzone Mobile Buildathon 2026, und das Einzige auf dieser Seite, das unter Verschluss bleibt: Was es ist, wie es sich spielt und der Quellcode erscheinen nach dem Einsendeschluss am 4. September 2026. Bis dahin sagt auch die Seite hinter dieser Karte genau so viel und nicht mehr.",
+      "Mein Beitrag zum Decentraland Friendzone Mobile Buildathon 2026. Idee und Screenshots kommen online, sobald am 4. September 2026 der Einsendeschluss vorbei ist. Der Code bleibt privat, deshalb führt diese Karte zur Beschreibung und nicht zu einem Repository.",
     "work.plinth":
       "Token minten, zum Verkauf stellen, den von jemand anderem kaufen. Die Grafik zeichnet der Vertrag selbst, also gibt es keinen IPFS-Hash, der stirbt, und nichts, wofür jemand dauerhaft zahlen muss. Die Seite redet ohne jede Wallet-Library mit Polygon und läuft auf erfundenen Daten, bis du eine verbindest. Kaum jemand installiert eine Extension, nur um sich ein Portfolio anzusehen.",
     "work.rally":
