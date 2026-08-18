@@ -745,7 +745,18 @@ a.card:hover .frame-note { opacity: 1; }
 
 .work { display: grid; gap: clamp(1.25rem, 3vw, 1.75rem); grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-.work .card { padding: 1rem; }
+/*
+  Every card in a row ends on the same line.
+
+  The grid stretches its items, but the card inside was `display: block` and
+  sized itself to its own content, so a three line blurb sat higher than a five
+  line one and the set read as ragged. Flex down the column, with the chips
+  pushed to the bottom, so the previews line up at the top and the tags line up
+  at the foot whatever the text does in between.
+*/
+.work .reveal { display: flex; flex-direction: column; }
+.work .card { padding: 1rem; flex: 1; display: flex; flex-direction: column; }
+.work .chips { margin-top: auto; }
 .work-head { display: flex; align-items: baseline; gap: .6rem; margin: .95rem .4rem 0; }
 .work-head h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); }
 .work-head .year { margin-left: auto; font: 700 .66rem/1 var(--mono); color: var(--faint); }
