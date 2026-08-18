@@ -68,7 +68,7 @@ const STRINGS = {
     "work.lounge":
       "My entry for the Decentraland Friendzone Mobile Buildathon 2026. The idea and the screenshots go up once submissions close on 4 September 2026. The code itself stays private, so this card links to the write-up rather than to a repository.",
     "work.fanout":
-      "Eight suppliers are asked for the same flight at once, under one shared budget rather than a timeout each. Whoever misses it is named beside the results instead of failing the search, and the page replays a real one at full speed: cut the budget below what the slowest supplier needs and watch it drop out. Every millisecond on it was measured across two processes.",
+      "Search seven European routes across three months and watch four suppliers answer at different speeds under one shared budget. Whoever misses it is named beside the results instead of failing the search. Cut the budget below what the slowest one needs and it drops out. Every millisecond on the page was measured across two processes.",
     "work.plinth":
       "Mint a token, put it up for sale, buy somebody else's. The art is drawn by the contract itself, so there is no IPFS hash to go dead and nothing to keep paying for. The page talks to Polygon with no wallet library at all, and runs on invented data until you connect one, because most people will not install an extension to look at a portfolio piece.",
     "work.rally":
@@ -168,7 +168,7 @@ const STRINGS = {
     "work.lounge":
       "Mein Beitrag zum Decentraland Friendzone Mobile Buildathon 2026. Idee und Screenshots kommen online, sobald am 4. September 2026 der Einsendeschluss vorbei ist. Der Code bleibt privat, deshalb führt diese Karte zur Beschreibung und nicht zu einem Repository.",
     "work.fanout":
-      "Acht Anbieter werden gleichzeitig nach demselben Flug gefragt, unter einem gemeinsamen Budget statt mit je einem Timeout. Wer es reißt, steht neben den Ergebnissen, statt die ganze Suche scheitern zu lassen. Die Seite spielt eine echte Suche in Echtzeit ab: kürz das Budget unter das, was der langsamste Anbieter braucht, und sieh zu wie er rausfällt.",
+      "Sieben europäische Strecken über drei Monate durchsuchen und zusehen, wie vier Anbieter unterschiedlich schnell antworten, unter einem gemeinsamen Budget. Wer es reißt, steht neben den Ergebnissen, statt die Suche scheitern zu lassen. Kürz das Budget unter das, was der langsamste braucht, und er fällt raus.",
     "work.plinth":
       "Token minten, zum Verkauf stellen, den von jemand anderem kaufen. Die Grafik zeichnet der Vertrag selbst, also gibt es keinen IPFS-Hash, der stirbt, und nichts, wofür jemand dauerhaft zahlen muss. Die Seite redet ohne jede Wallet-Library mit Polygon und läuft auf erfundenen Daten, bis du eine verbindest. Kaum jemand installiert eine Extension, nur um sich ein Portfolio anzusehen.",
     "work.rally":
