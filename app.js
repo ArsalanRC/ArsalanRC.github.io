@@ -21,7 +21,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Software architect",
 
     "ruler.live": "LIVE",
-    "chrome.status": "13 repos live · 1408 tests green",
+    "chrome.status": "14 repos live · 1485 tests green",
     "nav.work": "Work",
     "nav.numbers": "Numbers",
     "nav.approach": "Approach",
@@ -29,7 +29,7 @@ const STRINGS = {
     "nav.lang": "DE",
     "cursor.you": "you",
 
-    "hero.badgeStrong": "Thirteen repositories",
+    "hero.badgeStrong": "Fourteen repositories",
     "hero.badgeRest": "public, tested, running",
     "hero.kicker": "Software architect · Full-stack engineer",
     "hero.title": 'I build whole systems.<br>Interface to <span class="accent">integration</span>.',
@@ -121,7 +121,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Softwarearchitekt",
 
     "ruler.live": "LIVE",
-    "chrome.status": "13 Repos live · 1408 Tests grün",
+    "chrome.status": "14 Repos live · 1485 Tests grün",
     "nav.work": "Projekte",
     "nav.numbers": "Zahlen",
     "nav.approach": "Haltung",
@@ -129,7 +129,7 @@ const STRINGS = {
     "nav.lang": "EN",
     "cursor.you": "du",
 
-    "hero.badgeStrong": "Dreizehn Repositories",
+    "hero.badgeStrong": "Vierzehn Repositories",
     "hero.badgeRest": "öffentlich, getestet, im Betrieb",
     "hero.kicker": "Softwarearchitekt · Full-Stack-Engineer",
     "hero.title": 'Ich baue ganze Systeme.<br>Vom Interface zur <span class="accent">Integration</span>.',
