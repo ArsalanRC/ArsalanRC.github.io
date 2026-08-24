@@ -54,7 +54,7 @@
 
 <header class="chrome">
   <div class="pill pill-status">
-    <span data-i18n="chrome.status">12 repos live · 803 tests green</span>
+    <span data-i18n="chrome.status">13 repos live · 1395 tests green</span>
   </div>
 
   <nav class="pill pill-nav" aria-label="Sections">
@@ -84,9 +84,12 @@
   <!-- ------------------------------------------------------------- hero -- -->
   <section class="hero wrap">
     <div class="badge reveal">
-      <b data-i18n="hero.badgeStrong">Twelve repositories</b>
+      <b data-i18n="hero.badgeStrong">Thirteen repositories</b>
       <span data-i18n="hero.badgeRest">public, tested, running</span>
-      <span class="m">803 ✓</span>
+      <!-- Not translated, so nothing at runtime rewrites it. It sat at 803
+           while every other copy of the number moved, which is the argument
+           for keeping counts out of bare markup. -->
+      <span class="m">1395 ✓</span>
     </div>
 
     <p class="eyebrow reveal" data-i18n="hero.kicker">Software architect · Full-stack engineer</p>
@@ -117,11 +120,16 @@
 
     <div class="bento">
       <div class="card s3 stat reveal">
-        <b>12</b>
+        <b>13</b>
         <span class="label" data-i18n="numbers.repos">Public repositories</span>
       </div>
       <div class="card s3 stat reveal">
-        <b>803<sup>✓</sup></b>
+        <!-- Every suite run on 2026-08-24, with Postgres up so recon reports 86
+             rather than the 69 it silently falls to. arena-lounge 561, plinth
+             188, fanout 159, rally 106, recon 86, chess-engine 77, stylo 61,
+             pg-outbox 57, slotting 50, integration-patterns 50. The jump is
+             mostly arena-lounge, which was private and therefore uncounted. -->
+        <b>1395<sup>✓</sup></b>
         <span class="label" data-i18n="numbers.tests">Tests passing</span>
       </div>
       <div class="card s3 stat reveal">
@@ -133,12 +141,15 @@
              it merges, so mid-session it reads one high. Read from gh api, not
              from memory, and summed per public repo rather than through the
              search endpoint, which counts two archived tutorial repos as well.
-             104 on 2026-08-11 at the close of session 14, plus this change and
-             its twin on the profile README. That session took it from 77 to
-             102: rally shipped in seven pull requests and the profile and this
-             site followed in four. Recount at the END of a session that ships,
-             not only at the start, and expect to do it more than once. -->
-        <b>172</b>
+             `node game/recount.mjs` in the ArsalanRC repo does the sum and
+             fails on drift.
+
+             257 on 2026-08-24, plus this change and its twin on the profile
+             README, which is 259. It was 172 an hour earlier and that was not
+             drift: arena-lounge carries 74 merged pull requests of its own and
+             was private, so none of them could be counted. Recount whenever a
+             repo changes visibility, not only when one ships. -->
+        <b>259</b>
         <span class="label" data-i18n="numbers.prs">Merged pull requests</span>
       </div>
 
@@ -198,7 +209,7 @@
           <div class="chips">
             <span class="chip chip-mono">TypeScript</span>
             <span class="chip chip-mono">Decentraland</span>
-            <span class="chip chip-mono">Buildathon 2026</span>
+            <span class="chip chip-mono">561 tests</span>
           </div>
         </a>
       </div>
@@ -250,7 +261,7 @@
           <div class="chips">
             <span class="chip chip-mono">Solidity</span>
             <span class="chip chip-mono">Polygon</span>
-            <span class="chip chip-mono">157 tests</span>
+            <span class="chip chip-mono">188 tests</span>
           </div>
         </a>
       </div>

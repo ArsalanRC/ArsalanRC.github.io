@@ -21,7 +21,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Software architect",
 
     "ruler.live": "LIVE",
-    "chrome.status": "12 repos live · 803 tests green",
+    "chrome.status": "13 repos live · 1395 tests green",
     "nav.work": "Work",
     "nav.numbers": "Numbers",
     "nav.approach": "Approach",
@@ -29,7 +29,7 @@ const STRINGS = {
     "nav.lang": "DE",
     "cursor.you": "you",
 
-    "hero.badgeStrong": "Twelve repositories",
+    "hero.badgeStrong": "Thirteen repositories",
     "hero.badgeRest": "public, tested, running",
     "hero.kicker": "Software architect · Full-stack engineer",
     "hero.title": 'I build whole systems.<br>Interface to <span class="accent">integration</span>.',
@@ -66,7 +66,7 @@ const STRINGS = {
     "work.hover": "hover to scroll",
     "work.private": "private repository",
     "work.lounge":
-      "My entry for the Decentraland Friendzone Mobile Buildathon 2026. The idea and the screenshots go up once submissions close on 4 September 2026. The code itself stays private, so this card links to the write-up rather than to a repository.",
+      "A game lounge in Decentraland, built for phones first. Fourteen games at twenty-eight shared tables, over four floors of a marble palace tower. A house bot keeps a room playable when nobody else is there. It runs with no server and loads on 4G in seconds. Live at arenalounge.dcl.eth since 17 August 2026.",
     "work.fanout":
       "Search seven European routes across three months and watch four suppliers answer at different speeds under one shared budget. Whoever misses it is named beside the results instead of failing the search. Cut the budget below what the slowest one needs and it drops out. Every millisecond on the page was measured across two processes.",
     "work.plinth":
@@ -121,7 +121,7 @@ const STRINGS = {
     "meta.title": "Arsalan Khadim · Softwarearchitekt",
 
     "ruler.live": "LIVE",
-    "chrome.status": "12 Repos live · 803 Tests grün",
+    "chrome.status": "13 Repos live · 1395 Tests grün",
     "nav.work": "Projekte",
     "nav.numbers": "Zahlen",
     "nav.approach": "Haltung",
@@ -129,7 +129,7 @@ const STRINGS = {
     "nav.lang": "EN",
     "cursor.you": "du",
 
-    "hero.badgeStrong": "Zwölf Repositories",
+    "hero.badgeStrong": "Dreizehn Repositories",
     "hero.badgeRest": "öffentlich, getestet, im Betrieb",
     "hero.kicker": "Softwarearchitekt · Full-Stack-Engineer",
     "hero.title": 'Ich baue ganze Systeme.<br>Vom Interface zur <span class="accent">Integration</span>.',
@@ -166,7 +166,7 @@ const STRINGS = {
     "work.hover": "zum Scrollen hovern",
     "work.private": "privates Repository",
     "work.lounge":
-      "Mein Beitrag zum Decentraland Friendzone Mobile Buildathon 2026. Idee und Screenshots kommen online, sobald am 4. September 2026 der Einsendeschluss vorbei ist. Der Code bleibt privat, deshalb führt diese Karte zur Beschreibung und nicht zu einem Repository.",
+      "Eine Spiel-Lounge in Decentraland, gebaut fürs Handy zuerst. Vierzehn Spiele an achtundzwanzig Tischen, verteilt auf vier Etagen eines Marmorturms. Ist niemand da, übernimmt ein Haus-Bot und man kann trotzdem spielen. Läuft ohne Server und lädt im 4G in Sekunden. Seit dem 17. August 2026 live unter arenalounge.dcl.eth.",
     "work.fanout":
       "Sieben europäische Strecken über drei Monate durchsuchen und zusehen, wie vier Anbieter unterschiedlich schnell antworten, unter einem gemeinsamen Budget. Wer es reißt, steht neben den Ergebnissen, statt die Suche scheitern zu lassen. Kürz das Budget unter das, was der langsamste braucht, und er fällt raus.",
     "work.plinth":
